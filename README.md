@@ -8,6 +8,8 @@ Todos los cambios deben ser pusheados a branches con el nombre de usuario del au
 
 ## Manejo de ramas
 
+Para clonar un repositorio: `git clone <url>`
+
 Para crear una rama se usa el siguiente comando: `git checkout -b <branch-name>`
 
 Si la rama ya está creada se usa: `git checkout <branch-name>`
