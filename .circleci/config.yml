@@ -12,7 +12,7 @@ jobs:
     staging:
       branch: master
       heroku: 
-        appname: pdsw-circleci-demo
+        appname: proyecto-prueba-pdsw
   build:
     docker:
       # specify the version you desire here
