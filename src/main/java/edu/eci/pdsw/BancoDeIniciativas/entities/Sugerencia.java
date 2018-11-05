@@ -1,5 +1,96 @@
 package edu.eci.pdsw.BancoDeIniciativas.entities;
-
+import java.sql.Date;
+import java.util.ArrayList;
 public class Sugerencia {
-
+	
+	private int id;
+	private String mensaje;
+	private String palabrasClave;
+	private Usuario usuario;
+	private Tema tema;
+	private Date fechaCreacion;
+	private Date fechamodificacion;
+	private String titulo;
+	private ArrayList<Usuario> likes;
+	private EstadoSugerencia estado;
+	
+	public Sugerencia() {
+		
+	}
+	public Sugerencia(int id,String mensaje,String palabrasClave,Usuario usuario,
+			Tema tema,Date fechaCreacion,String titulo,ArrayList<Usuario> likes) {
+		this.id=id;
+		this.mensaje=mensaje;
+		this.palabrasClave=palabrasClave;
+		this.usuario=usuario;
+		this.tema=tema;
+		this.fechaCreacion=fechaCreacion;
+		this.titulo=titulo;
+		this.likes=likes;
+		fechamodificacion=null;
+		estado=EstadoSugerencia.En_espera_de_revisión;
+	}
+	public EstadoSugerencia getEstado() {
+		return estado;
+	}
+	public void setEstado(EstadoSugerencia estado) {
+		this.estado = estado;
+	}
+	public ArrayList<Usuario> getLikes() {
+		return likes;
+	}
+	public void setLikes(ArrayList<Usuario> likes) {
+		this.likes = likes;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getMensaje() {
+		return mensaje;
+	}
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
+	}
+	public String getPalabrasClave() {
+		return palabrasClave;
+	}
+	public void setPalabrasClave(String palabrasClave) {
+		this.palabrasClave = palabrasClave;
+	}
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	public Tema getTema() {
+		return tema;
+	}
+	public void setTema(Tema tema) {
+		this.tema = tema;
+	}
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+	public Date getFechamodificacion() {
+		return fechamodificacion;
+	}
+	public void setFechamodificacion(Date fechamodificacion) {
+		this.fechamodificacion = fechamodificacion;
+	}
+	public String getTitulo() {
+		return titulo;
+	}
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+	
+	
+	
 }
