@@ -2,17 +2,8 @@
 #
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
-version: 1
+version: 2
 jobs:
-  machine:
-    java:
-      version: oraclejdk8
-
-  deployment:
-    staging:
-      branch: master
-      heroku: 
-        appname: proyecto-prueba-pdsw
   build:
     docker:
       # specify the version you desire here
@@ -48,4 +39,3 @@ jobs:
         
       # run tests!
       - run: mvn integration-test
-
