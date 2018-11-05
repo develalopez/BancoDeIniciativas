@@ -58,6 +58,7 @@ Debido a las reglas de control de calidad, es necesario que cada uno use una ram
 * Para crear una rama: `git checkout -b <branch-name>`
 * Para transportarse entre ramas existentes: `git checkout <branch-name>`
 * Para actualizar la rama con respecto a la rama principal se ejecuta (desde su rama) `git pull --rebase origin master`, este comando toma el trabajo realizado por ustedes, lo guarda, actualiza los cambios de la rama master y coloca su trabajo encima de este.
+* Si tienen trabajo realizado en su rama que no han mandado al repositorio remoto, se usa `git checkout 't origin/<branch-name>`, esto permite que se reciba todo el trabajo al que le hayan hecho commit y pusheado a su rama.
 
 Todos los comandos de confirmación de cambios se realizan desde su rama, y para enviarlos al repostorio remoto se usan los siguientes comandos:
 * Si es un commit al que no se le ha hecho push: `git push origin <branch-name>`
