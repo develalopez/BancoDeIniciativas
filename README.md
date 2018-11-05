@@ -42,6 +42,7 @@ Para clonar este repositorio de manera local:
 	
 Para actualizar el repositorio desde su rama:
 	`git pull --rebase origin master`
+
 Se recomienda ejecutar este comando cada vez que se vaya a trabajar en algo nuevo.
 
 Debido a las reglas de control de calidad, es necesario que cada uno use una rama que indique en su nombre que es de su autoría, para esto se usan los siguientes comandos de control de ramas:
