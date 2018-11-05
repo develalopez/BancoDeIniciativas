@@ -3,6 +3,35 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="edu.eci.pdsw.BancoDeIniciativas.dao.mybatis.mappers.UsuarioMapper">
-
+<mapper
+	namespace="edu.eci.pdsw.BancoDeIniciativas.dao.mybatis.mappers.UsuarioMapper">
+	<insert id="registrarUsuario" parameterType="Usuario">
+		insert into
+		users
+		(correo,nombre,users_type_id)
+		values
+		(#{iduser.correo},#{iduser.nombre},#{iduser.users_type_id})
+	</insert>
+	<select id="consultarUsuarios" resultMap="UsuarioResult">
+		select
+		*
+		FROM
+		users
+		order
+		by correo ASC
+	</select>
+	<select id="consultarUsuario" resultMap="UsuarioResult1">
+		select
+		*
+		FROM
+		users
+		where correo = #{iduser}
+	</select>
+	<select id="consultarUsuarioLikes" resultMap="UsuarioResult">
+		select
+		su.*
+		FROM
+		users as u,likes as li,sugerencias as su
+		where li.users_correo = #{iduser} and li.sugerencias_id=su.id 
+	</select>
 </mapper>
