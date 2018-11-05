@@ -37,6 +37,8 @@ Para verificar el estado de un archivo se usa el comando `git status`, los archi
 
 ## Manejo del repositorio remoto
 
+### Actualizar de manera local
+
 Para clonar este repositorio de manera local:
 	`git clone https://github.com/develalopez/BancoDeIniciativas.git`
 	
@@ -44,6 +46,8 @@ Para actualizar el repositorio desde su rama:
 	`git pull --rebase origin master`
 
 Se recomienda ejecutar este comando cada vez que se vaya a trabajar en algo nuevo.
+
+### Enviar cambios al repositorio remoto
 
 Debido a las reglas de control de calidad, es necesario que cada uno use una rama que indique en su nombre que es de su autoría, para esto se usan los siguientes comandos de control de ramas:
 
