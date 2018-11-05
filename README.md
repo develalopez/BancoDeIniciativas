@@ -20,6 +20,10 @@ Personalmente les recomiendo cambiar el editor de texto de Git tenga asignado, e
 
     git config --global core.editor "code --wait"
 
+Para cambiar el editor a Nano:
+
+	 git config --global core.editor "nano"
+
 Finalmente, para que el Git Bash no solicite sus credenciales cada vez que quieran pushear los cambios al repositorio remoto, usen el siguiente comando:
 
     git config --global credential.helper wincred
