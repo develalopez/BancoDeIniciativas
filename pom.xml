@@ -154,9 +154,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
-
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -202,7 +199,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
 			<!-- Tomcat embedded plugin. -->
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
@@ -213,8 +209,6 @@
 					<path>/</path>
 				</configuration>
 			</plugin>
-
-
 		</plugins>
 	</build>
 </project>
