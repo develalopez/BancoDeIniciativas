@@ -1,7 +1,20 @@
 <!DOCTYPE web-app PUBLIC
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<html>
+	<head>
+		<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+				<link rel="stylesheet" href="css/bootstrap.min.css">
+					<script src="js/bootstrap.min.js"></script>
 
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
-</web-app>
+	</head>
+	<body>
+
+		<div class="container">
+			<h1>My First Bootstrap Page</h1>
+			<p>This is some text.</p>
+		</div>
+
+	</body>
+</html>
