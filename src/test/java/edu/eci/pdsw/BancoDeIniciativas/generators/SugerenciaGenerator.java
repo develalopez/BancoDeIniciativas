@@ -1,10 +1,8 @@
 package edu.eci.pdsw.BancoDeIniciativas.generators;
 
-import static org.quicktheories.generators.SourceDSL.longs;
-import static org.quicktheories.generators.SourceDSL.strings;
-import static org.quicktheories.generators.SourceDSL.integers;
-
 import static edu.eci.pdsw.BancoDeIniciativas.generators.Generators.usuarios;
+import static org.quicktheories.generators.SourceDSL.integers;
+import static org.quicktheories.generators.SourceDSL.strings;
 
 import org.quicktheories.core.Gen;
 
@@ -13,7 +11,7 @@ import edu.eci.pdsw.BancoDeIniciativas.entities.Sugerencia;
 public class SugerenciaGenerator {
 	
 	public Gen<Sugerencia> any() {
-		return ids().zip(titulos(), mensajes(), fechas(), usuarios().any(), (id, titulo, mensaje, fecha_creacion, correo_usuario) -> new Sugerencia(id, titulo, mensaje, fecha_creacion, correo_usuario));
+		return ids().zip(titulos(), mensajes(), fechas(), usuarios().any(), (id, titulo, mensaje, fechaCreacion, usuario) -> new Sugerencia(id, mensaje, null, usuario, null, fechaCreacion, titulo, null));
 	}
 	
 	public Gen<Integer> ids() {

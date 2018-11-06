@@ -17,18 +17,18 @@ public class Sugerencia {
 	public Sugerencia() {
 		
 	}
-	public Sugerencia(int id,String mensaje,String palabrasClave,Usuario usuario,
-			Tema tema,Date fechaCreacion,String titulo,ArrayList<Usuario> likes) {
-		this.id=id;
-		this.mensaje=mensaje;
-		this.palabrasClave=palabrasClave;
-		this.usuario=usuario;
-		this.tema=tema;
-		this.fechaCreacion=fechaCreacion;
-		this.titulo=titulo;
-		this.likes=likes;
-		fechaModificacion=null;
-		estado=EstadoSugerencia.EN_ESPERA_DE_REVISION;
+	public Sugerencia(int id, String mensaje, String palabrasClave, Usuario usuario,
+			Tema tema, Date fechaCreacion, String titulo, ArrayList<Usuario> likes) {
+		this.id = id;
+		this.mensaje = mensaje;
+		this.palabrasClave = palabrasClave;
+		this.usuario = usuario;
+		this.tema = tema;
+		this.fechaCreacion = fechaCreacion;
+		this.titulo = titulo;
+		this.likes = likes;
+		fechaModificacion = null;
+		estado = EstadoSugerencia.EN_ESPERA_DE_REVISION;
 	}
 	public EstadoSugerencia getEstado() {
 		return estado;

@@ -4,16 +4,16 @@ public class Usuario {
 	private String nombre;
 
 	private String correo;
-	private long users_type_id;
+	private TipoUsuario tipo;
 
 	public Usuario() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Usuario(String correo, String nombre, Long users_type_id) {
-		this.correo=correo;
-		this.nombre=nombre;
-		this.users_type_id=users_type_id;
+	public Usuario(String correo, String nombre, TipoUsuario tipo) {
+		this.correo = correo;
+		this.nombre = nombre;
+		this.tipo = tipo;
 	}
 
 	public String getNombre() {
@@ -32,12 +32,12 @@ public class Usuario {
 		this.correo = correo;
 	}
 
-	public long getUsers_type_id() {
-		return users_type_id;
+	public TipoUsuario getTipo() {
+		return tipo;
 	}
 
-	public void setUsers_type_id(long users_type_id) {
-		this.users_type_id = users_type_id;
+	public void setTipo(TipoUsuario tipo) {
+		this.tipo = tipo;
 	}
 
 }
