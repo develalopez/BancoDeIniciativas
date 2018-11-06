@@ -122,6 +122,14 @@
             <version>1.4.184</version>
         </dependency>
 
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
 
 
 
@@ -350,7 +358,7 @@
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.2</version>
+				<version>2.1</version>
 				<configuration>
 					<port>8080</port>
 					<path>/</path>
