@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <context-param>
@@ -22,3 +23,29 @@
         <welcome-file>faces/index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
+=======
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<html>
+	<head>
+		<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+				<link rel="stylesheet" href="css/bootstrap.min.css">
+					<script src="js/bootstrap.min.js"></script>
+
+	</head>
+	<body>
+
+		<div class="container">
+			<h1>My First Bootstrap Page</h1>
+			<p>This is some text.</p>
+		</div>
+
+	</body>
+<<<<<<< HEAD
+</html>
+>>>>>>> boostrap
+=======
+</html>
+>>>>>>> c91e3c4f22ae43ceb5db92b3ff396a3b28141f1a
