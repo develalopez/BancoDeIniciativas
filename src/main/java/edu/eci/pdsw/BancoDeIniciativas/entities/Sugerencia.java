@@ -9,7 +9,7 @@ public class Sugerencia {
 	private Usuario usuario;
 	private Tema tema;
 	private Date fechaCreacion;
-	private Date fechamodificacion;
+	private Date fechaModificacion;
 	private String titulo;
 	private ArrayList<Usuario> likes;
 	private EstadoSugerencia estado;
@@ -27,8 +27,8 @@ public class Sugerencia {
 		this.fechaCreacion=fechaCreacion;
 		this.titulo=titulo;
 		this.likes=likes;
-		fechamodificacion=null;
-		estado=EstadoSugerencia.En_espera_de_revisión;
+		fechaModificacion=null;
+		estado=EstadoSugerencia.EN_ESPERA_DE_REVISION;
 	}
 	public EstadoSugerencia getEstado() {
 		return estado;
@@ -78,11 +78,11 @@ public class Sugerencia {
 	public void setFechaCreacion(Date fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
-	public Date getFechamodificacion() {
-		return fechamodificacion;
+	public Date getFechaModificacion() {
+		return fechaModificacion;
 	}
-	public void setFechamodificacion(Date fechamodificacion) {
-		this.fechamodificacion = fechamodificacion;
+	public void setFechaModificacion(Date fechamodificacion) {
+		this.fechaModificacion = fechamodificacion;
 	}
 	public String getTitulo() {
 		return titulo;

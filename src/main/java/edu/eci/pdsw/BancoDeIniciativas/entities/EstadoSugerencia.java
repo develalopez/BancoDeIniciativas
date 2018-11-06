@@ -1,9 +1,9 @@
 package edu.eci.pdsw.BancoDeIniciativas.entities;
 
 public enum EstadoSugerencia {
-	En_espera_de_revisión,
-	En_revisión,
-	Proyecto,
-	Solucionado;
+	EN_ESPERA_DE_REVISION,
+	EN_REVISION,
+	PROYECTO,
+	SOLUCIONADO;
 
 }
