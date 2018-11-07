@@ -19,6 +19,30 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>faces/index.jsp</welcome-file>
+        <welcome-file>faces/login.xhtml</welcome-file>
     </welcome-file-list>
+	<mine-mapping>
+		<extension>ttf</extension>
+		<mine-type>css/fonts</mine-type>
+	</mine-mapping>
+	<mine-mapping>
+		<extension>otf</extension>
+		<mine-type>font/opentype</mine-type>
+	</mine-mapping>
+	<mine-mapping>
+		<extension>woff2</extension>
+		<mine-type>font/woff2</mine-type>
+	</mine-mapping>
+	<mine-mapping>
+		<extension>woff</extension>
+		<mine-type>font/woff</mine-type>
+	</mine-mapping>
+	<mine-mapping>
+		<extension>eot</extension>
+		<mine-type>aplication/vnd.ns-fontobject</mine-type>
+	</mine-mapping>	
+	
+	<listener>
+		<listener-class>edu.eci.pdsw.guice.GuiceContextListener</listener-class>
+	</listener>
 </web-app>
