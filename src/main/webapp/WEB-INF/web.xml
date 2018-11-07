@@ -43,7 +43,7 @@
 	</mine-mapping>	
 	
 	<listener>
-	
 		<listener-class>edu.eci.pdsw.BancoDeIniciativas.guice.GuiceContextListener</listener-class>
+
 	</listener>
 </web-app>
