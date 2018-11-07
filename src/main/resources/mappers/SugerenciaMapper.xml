@@ -3,41 +3,51 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="edu.eci.pdsw.BancoDeIniciativas.dao.mybatis.mappers.SugerenciaMapper">
-<insert parameterType="map" id="agregarSugerencia" >
-		INSERT INTO sugerencias 
+<mapper
+	namespace="edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.mappers.SugerenciaMapper">
+	<insert parameterType="map" id="agregarSugerencia">
+		INSERT INTO
+		sugerencias
 		(id,mensaje,palabras_clave,users_correo,tema_id,
 		fecha_creacion,fecha_modificacion,titulo)
 		Values
 		(#{sugerencia.id},#{sugerencia.mensaje},#{sugerencia.palabrasClave}
 		,#{sugerencia.usuario.correo},#{sugerencia.tema.id},#{sugerencia.fechaCreacion}
 		,#{sugerencia.fechaModificacion},#{sugerencia.titulo});
-</insert>
-<delete parameterType="map" id="eliminarSugerencia">
-DELETE * FROM sugerencias WHERE id=#{id};
-</delete>
-<select parameterType="map" id="verSugerencia" resultMap="SugerenciaResult">
- SELECT * from sugerencias where id=#{id};
-</select>
-<update parameterType="map" id="actualizarSugerencia">
- UPDATE sugerencias SET mensaje=#{mensaje},palabrasClave=#{palabras},
- 		fecha_modificacion=#{fecha} where id=#{id};
-</update>
-<select parameterType="map" id="verSugerencias" resultMap="SugerenciaResult">
- SELECT * from sugerencias ;
-</select>
-<update parameterType="map" id="actualizarEstado">
- UPDATE sugerencias SET estado=#{estado} where id=#{id};
-</update>
-<resultMap type='Sugerencia' id='SugerenciaResult'>
-    <id property='id' column='id'/>
-    <result property='mensaje' column='mensaje'/>
-    <result property='palabrasClave' column='palabras_clave'/>  
-    <result property='fechaCreacion' column='fecha_creacion'/> 
-    <result property='fechamodificacion' column='fecha_modificacion'/>  
-    <result property='titulo' column='titulo'/>
-    <association property='tema' column='tema_id' javaType="Tema" resultMap='edu.eci.pdsw.BancoDeIniciativas.dao.mybatis.mappers.TemaMapper.TemaResult' />
-    <association property='usuario' column='users_correo' javaType="Usuario" resultMap='edu.eci.pdsw.BancoDeIniciativas.dao.mybatis.mappers.UsuarioMapper.UsuarioResult' />   
-    <collection property='likes' ofType='Usuario' resultMap='edu.eci.pdsw.BancoDeIniciativas.dao.mybatis.mappers.UsuarioMapper.UsuarioResult' ></collection>
-</resultMap>
+	</insert>
+	<delete parameterType="map" id="eliminarSugerencia">
+		DELETE * FROM sugerencias WHERE id=#{id};
+	</delete>
+	<select parameterType="map" id="verSugerencia"
+		resultMap="SugerenciaResult">
+		SELECT * from sugerencias where id=#{id};
+	</select>
+	<update parameterType="map" id="actualizarSugerencia">
+		UPDATE sugerencias SET mensaje=#{mensaje},palabrasClave=#{palabras},
+		fecha_modificacion=#{fecha} where id=#{id};
+	</update>
+	<select parameterType="map" id="verSugerencias"
+		resultMap="SugerenciaResult">
+		SELECT * from sugerencias ;
+	</select>
+	<update parameterType="map" id="actualizarEstado">
+		UPDATE sugerencias SET estado=#{estado} where id=#{id};
+	</update>
+	<resultMap type='Sugerencia' id='SugerenciaResult'>
+		<id property='id' column='id' />
+		<result property='mensaje' column='mensaje' />
+		<result property='palabrasClave' column='palabras_clave' />
+		<result property='fechaCreacion' column='fecha_creacion' />
+		<result property='fechamodificacion'
+			column='fecha_modificacion' />
+		<result property='titulo' column='titulo' />
+		<association property='tema' column='tema_id'
+			javaType="Tema"
+			resultMap='edu.eci.pdsw.BancoDeIniciativas.dao.mybatis.mappers.TemaMapper.TemaResult' />
+		<association property='usuario' column='users_correo'
+			javaType="Usuario"
+			resultMap='edu.eci.pdsw.BancoDeIniciativas.dao.mybatis.mappers.UsuarioMapper.UsuarioResult' />
+		<collection property='likes' ofType='Usuario'
+			resultMap='edu.eci.pdsw.BancoDeIniciativas.dao.mybatis.mappers.UsuarioMapper.UsuarioResult'></collection>
+	</resultMap>
 </mapper>
