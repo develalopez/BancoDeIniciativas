@@ -1,3 +1,4 @@
+
 package edu.eci.pdsw.BancoDeIniciativas.guice;
 
 import javax.servlet.ServletContext;
@@ -19,24 +20,26 @@ import edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.MyBatisUsuarioDAO;
 
 public class GuiceContextListener implements ServletContextListener {
 
-    public void contextDestroyed(ServletContextEvent servletContextEvent) {
-        ServletContext servletContext = servletContextEvent.getServletContext();
-        servletContext.removeAttribute(Injector.class.getName());
-    }
+	public void contextDestroyed(ServletContextEvent servletContextEvent) {
+		ServletContext servletContext = servletContextEvent.getServletContext();
+		servletContext.removeAttribute(Injector.class.getName());
+	}
 
-    public void contextInitialized(ServletContextEvent servletContextEvent) {
-        Injector injector = Guice.createInjector(new XMLMyBatisModule() {
-            @Override
-            protected void initialize() {
-                install(JdbcHelper.PostgreSQL);
-                setEnvironmentId("development");
-                setClassPathResource("mybatis-config.xml");
-                bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
-                bind(SugerenciaDAO.class).to(MyBatisSugerenciaDAO.class);
-                bind(TemaDAO.class).to(MyBatisTemaDAO.class);
-            }
-        });
+	public void contextInitialized(ServletContextEvent servletContextEvent) {
+		Injector injector = Guice.createInjector(new XMLMyBatisModule() {
+			@Override
+			protected void initialize() {
+				install(JdbcHelper.PostgreSQL);
+				setEnvironmentId("development");
+				setClassPathResource("mybatis-config.xml");
 
-        servletContextEvent.getServletContext().setAttribute(Injector.class.getName(), injector);
-    }
+				bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
+				bind(SugerenciaDAO.class).to(MyBatisSugerenciaDAO.class);
+				bind(TemaDAO.class).to(MyBatisTemaDAO.class);
+
+			}
+		});
+
+		servletContextEvent.getServletContext().setAttribute(Injector.class.getName(), injector);
+	}
 }
