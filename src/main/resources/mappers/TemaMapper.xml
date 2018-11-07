@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="edu.eci.pdsw.BancoDeIniciativas.dao.mybatis.mappers.TemaMapper">
+<mapper namespace="edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.mappers.TemaMapper">
 	<select id="consultarSugerencia" resultMap="SugerenciaResult">
 		select
 		*
