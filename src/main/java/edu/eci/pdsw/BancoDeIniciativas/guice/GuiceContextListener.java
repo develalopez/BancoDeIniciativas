@@ -1,4 +1,4 @@
-package edu.eci.pdsw.guice;
+package edu.eci.pdsw.BancoDeIniciativas.guice;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -10,12 +10,12 @@ import org.mybatis.guice.datasource.helper.JdbcHelper;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
-import edu.eci.pdsw.persistence.InitiativeDAO;
-import edu.eci.pdsw.persistence.UserDAO;
-import edu.eci.pdsw.persistence.mybatisimpl.MyBatisInitiativeDAO;
-import edu.eci.pdsw.persistence.mybatisimpl.MyBatisUserDao;
-import edu.eci.pdsw.samples.services.InitiativeServices;
-import edu.eci.pdsw.samples.services.impl.InitiativeServiceImpl;
+import edu.eci.pdsw.BancoDeIniciativas.dao.SugerenciaDAO;
+import edu.eci.pdsw.BancoDeIniciativas.dao.TemaDAO;
+import edu.eci.pdsw.BancoDeIniciativas.dao.UsuarioDAO;
+import edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.MyBatisSugerenciaDAO;
+import edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.MyBatisTemaDAO;
+import edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.MyBatisUsuarioDAO;
 
 public class GuiceContextListener implements ServletContextListener {
 
@@ -31,11 +31,9 @@ public class GuiceContextListener implements ServletContextListener {
                 install(JdbcHelper.PostgreSQL);
                 setEnvironmentId("development");
                 setClassPathResource("mybatis-config.xml");
-                bind(InitiativeServices.class).to(InitiativeServiceImpl.class);
-                bind(UserDAO.class).to(MyBatisUserDao.class);
-                bind(InitiativeDAO.class).to(MyBatisInitiativeDAO.class);
-                
-                
+                bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
+                bind(SugerenciaDAO.class).to(MyBatisSugerenciaDAO.class);
+                bind(TemaDAO.class).to(MyBatisTemaDAO.class);
             }
         });
 
