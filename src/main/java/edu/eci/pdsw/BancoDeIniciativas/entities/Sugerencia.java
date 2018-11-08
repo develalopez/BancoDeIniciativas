@@ -7,7 +7,7 @@ public class Sugerencia {
 
 	private int id;
 	private String mensaje;
-	private String palabrasClave;
+	private String palabrasClave;	// Ver si se quedara como string o sera una lista
 	private Usuario usuario;
 	private Tema tema;
 	private Date fechaCreacion;
