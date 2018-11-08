@@ -2,7 +2,6 @@ package edu.eci.pdsw.BancoDeIniciativas.entities;
 
 public class Usuario {
 	private String nombre;
-
 	private String correo;
 	private TipoUsuario tipo;
 
