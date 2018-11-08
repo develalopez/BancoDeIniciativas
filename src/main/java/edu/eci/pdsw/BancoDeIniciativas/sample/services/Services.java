@@ -76,4 +76,5 @@ public interface Services {
 
 	public ArrayList<Usuario> likesSugerencia(int sugerencia);
 
+
 }

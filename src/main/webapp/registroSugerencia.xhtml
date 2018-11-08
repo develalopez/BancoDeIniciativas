@@ -9,6 +9,7 @@
 	<title></title>
 </h:head>
 <h:body>
+ <h:form id="Sugerencias">
 	<h1>Sugerencias de #{sugerenciaBean.usuario} </h1>
 	<p:dataTable id="Sugerencias" var="sugerencia" value="#{sugerenciaBean.sugerenciasUsuario}">
 		<p:column headerText="id">
@@ -45,5 +46,8 @@
 	<p:inputText id="mensaje"  value="#{sugerenciaBean.mensaje}"/>
 	<p>escriba palabras clave separadas por comas (,)</p> 
 	<p:inputText id="palabrasClave"  value="#{sugerenciaBean.palabrasClave}"/> 
+	<p></p>
+	<p:commandButton value="Registrar" update="Sugerencias"  actionListener="#{sugerenciaBean.registrarSugerencia}" />
+</h:form>
 </h:body>
 </html>

@@ -12,7 +12,7 @@
 		values
 		(#{iduser.correo},#{iduser.nombre},#{iduser.users_type_id})
 	</insert>
-	<select id="consultarUsuarios" resultMap="UsuarioResult">
+	<select id="consultarUsuarios" resultMap="UsuarioResult1">
 		select
 		*
 		FROM
@@ -27,11 +27,16 @@
 		users
 		where correo = #{iduser}
 	</select>
-	<select id="consultarUsuarioLikes" resultMap="UsuarioResult">
+	<select id="consultarUsuarioLikes" resultMap="UsuarioResult1">
 		select
 		su.*
 		FROM
 		users as u,likes as li,sugerencias as su
 		where li.users_correo = #{iduser} and li.sugerencias_id=su.id 
 	</select>
+	<resultMap type='Usuario' id='UsuarioResult1'>
+		<id property='correo' column='correo' />
+		<result property='nombre' column='nombre' />
+		<result property='tipo' column='Users_type_id' />
+	</resultMap>
 </mapper>

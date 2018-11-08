@@ -12,13 +12,14 @@ import javax.inject.Inject;
 import edu.eci.pdsw.BancoDeIniciativas.entities.EstadoSugerencia;
 import edu.eci.pdsw.BancoDeIniciativas.entities.Sugerencia;
 import edu.eci.pdsw.BancoDeIniciativas.entities.Tema;
+import edu.eci.pdsw.BancoDeIniciativas.entities.TipoTema;
 import edu.eci.pdsw.BancoDeIniciativas.entities.Usuario;
 import edu.eci.pdsw.BancoDeIniciativas.sample.services.Services;
 import edu.eci.pdsw.BancoDeIniciativas.sample.services.ServicesException;
 
 @ManagedBean(name = "sugerenciaBean")
 @RequestScoped
-public class SugerenciaBean {
+public class SugerenciaBean extends BasePageBean{
 	@Inject
 	Services service;
 	@ManagedProperty(value = "#{param.usuario}")
@@ -53,9 +54,11 @@ public class SugerenciaBean {
 		//tema, desplegable
 		
 		java.sql.Date fecha = new java.sql.Date(System.currentTimeMillis());
-		Sugerencia s=new Sugerencia(1,mensaje,palabrasClave,service.getUser(usuario),new Tema(),
+		Sugerencia s=new Sugerencia(1,mensaje,palabrasClave,service.getUser(usuario),new Tema(1,TipoTema.tema1),
 				fecha,titulo,new ArrayList<Usuario>());
-		
+		System.out.println(s.getUsuario());
+		System.out.println(s.getUsuario().getCorreo());
+		service.createComment(s);
 	}
 	public String getUsuario() {
 		return usuario;
