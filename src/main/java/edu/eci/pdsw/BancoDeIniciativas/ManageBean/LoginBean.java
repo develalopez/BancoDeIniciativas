@@ -21,41 +21,40 @@ import javax.servlet.http.HttpSession;
 
 
 @SuppressWarnings("deprecation")
-@ManagedBean(name = "userBean")
+@ManagedBean(name = "loginBean")
 @SessionScoped
-public class UserBean extends BasePageBean {
+public class LoginBean extends BasePageBean {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 3594009161252782831L;
-	
-	
+
 	@Inject
 	Services service;
-	
-	public void logIn(String email, String password) throws ServicesException, IOException {
+
+	public void login(String email) throws ServicesException, IOException {
 		Usuario user = service.getUser(email);
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		if(user != null) {
 			HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
 			session.setAttribute("correo", user.getCorreo());
-			session.setAttribute("name", user.getNombre());
-			facesContext.getExternalContext().redirect("/faces/initiativeKeyword.xhtml");
+			session.setAttribute("nombre", user.getNombre());
+			facesContext.getExternalContext().redirect("/faces/index.jsp");
 		}
 		else {
-			facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Usuario o clave invalido","Error"));
+			facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario o clave invalido", "Error"));
 		}
 	}
-	
-	public boolean islogged() {
+
+	public boolean isLogged() {
 		return ((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("id") != null;
 	}
-	
-	public String getName() {
-		return ((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("name").toString();
+
+	public String getNombre() {
+		return ((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("nombre").toString();
 	}
-		
+
 	public List<Usuario> getUsers() throws Exception{
 		try {
 			return service.listUsers();
@@ -64,12 +63,12 @@ public class UserBean extends BasePageBean {
 			throw ex;
 		}
 	}
-	
+
 	public List<Tema> getTypes (){
 		return Arrays.asList(Tema.class.getEnumConstants() );
-		
+
 	}
-	
+
 	public void modifyUser(String email, int rol) {
 		try {
 			System.out.println(email+" "+rol);
@@ -79,6 +78,5 @@ public class UserBean extends BasePageBean {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 }
