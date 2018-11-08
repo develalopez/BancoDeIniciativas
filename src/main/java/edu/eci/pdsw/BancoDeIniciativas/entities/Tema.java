@@ -1,17 +1,19 @@
 package edu.eci.pdsw.BancoDeIniciativas.entities;
 
+
 public class Tema {
 	
 	private Integer id;
-	private String nombre;
+	private TipoTema tipoTema;
+	
 	
 	public Tema() {
 		
 	}
-	
-	public Tema(int id, String nombre) {
-		this.setId(id);
-		this.setNombre(nombre);
+
+	public Tema(Integer id, TipoTema tipoTema) {
+		this.id = id;
+		this.tipoTema = tipoTema;
 	}
 
 	public Integer getId() {
@@ -22,12 +24,16 @@ public class Tema {
 		this.id = id;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public TipoTema getTipoTema() {
+		return tipoTema;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setTipoTema(TipoTema tipoTema) {
+		this.tipoTema = tipoTema;
 	}
+	
+	
+
+	
 
 }
