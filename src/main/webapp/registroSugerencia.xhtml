@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title></title>
+</h:head>
+<h:body>
+	<h1>Sugerencias de #{sugerenciaBean.usuario} </h1>
+	<p:dataTable id="Sugerencias" var="sugerencia" value="#{sugerenciaBean.sugerenciasUsuario}">
+		<p:column headerText="id">
+			<h:outputText value="#{sugerencia.id}" />
+		</p:column>
+		<p:column headerText="titulo">
+			<h:outputText value="#{sugerencia.titulo}" />
+		</p:column>
+		<p:column headerText="sugerencia">
+			<h:outputText value="#{sugerencia.mensaje}" />
+		</p:column>
+		<p:column headerText="palabrasClave">
+			<h:outputText value="#{sugerencia.palabrasClave}" />
+		</p:column>
+		<p:column headerText="fecha Creacion">
+			<h:outputText value="#{sugerencia.fechaCreacion}" />
+		</p:column>
+		<p:column headerText="fecha Modificacion">
+			<h:outputText value="#{sugerencia.fechaModificacion}" />
+		</p:column>
+		<p:column headerText="estado">
+			<h:outputText value="#{sugerencia.estado}" />
+		</p:column>
+		<p:column headerText="Likes">
+			<p:button outcome="likesSugerencia?sugerencia=#{sugerencia.id}" value="Ver Likes" />
+		
+		</p:column>
+	</p:dataTable>
+	
+	<h1>Registrar nueva Sugerencia</h1>
+	<p>titulo</p> 
+	<p:inputText id="titulo"  value="#{sugerenciaBean.titulo}"/> 
+	<p>describa su idea</p>
+	<p:inputText id="mensaje"  value="#{sugerenciaBean.mensaje}"/>
+	<p>escriba palabras clave separadas por comas (,)</p> 
+	<p:inputText id="palabrasClave"  value="#{sugerenciaBean.palabrasClave}"/> 
+</h:body>
+</html>

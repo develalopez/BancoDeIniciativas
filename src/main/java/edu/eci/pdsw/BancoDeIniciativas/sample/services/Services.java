@@ -1,6 +1,7 @@
 package edu.eci.pdsw.BancoDeIniciativas.sample.services;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.eci.pdsw.BancoDeIniciativas.entities.EstadoSugerencia;
@@ -71,5 +72,8 @@ public interface Services {
 	 *             keywords) throws ServicesException;
 	 * 
 	 */
+	public ArrayList<Sugerencia> getSugerenciasUsuario(String correo);
+
+	public ArrayList<Usuario> likesSugerencia(int sugerencia);
 
 }

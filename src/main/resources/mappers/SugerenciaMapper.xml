@@ -22,6 +22,15 @@
 		resultMap="SugerenciaResult">
 		SELECT * from sugerencias where id=#{id};
 	</select>
+	<select parameterType="map" id="verSugerenciasUsuario"
+		resultMap="SugerenciaResult">
+		SELECT * from sugerencias where users_correo=#{correo};
+	</select>
+	<select parameterType="map" id="likesSugerencia"
+		resultMap="edu.eci.pdsw.BancoDeIniciativas.dao.mybatis.mappers.UsuarioMapper.UsuarioResult">
+		SELECT * from sugerencias as s JOIN likes on s.id=sugerencias_id JOIN users as u
+		ON u.correo=likes.users_correo
+	</select>
 	<update parameterType="map" id="actualizarSugerencia">
 		UPDATE sugerencias SET mensaje=#{mensaje},palabrasClave=#{palabras},
 		fecha_modificacion=#{fecha} where id=#{id};

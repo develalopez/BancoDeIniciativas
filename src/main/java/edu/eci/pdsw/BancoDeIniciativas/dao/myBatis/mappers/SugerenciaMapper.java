@@ -17,5 +17,6 @@ public interface SugerenciaMapper {
 			@Param("palabras")String palabrasClave,@Param("fecha")Date fechaModificacion);
 	public ArrayList<Sugerencia> verSugerencias();
 	public void actualizarEstado(@Param("id")int id,@Param("estado")EstadoSugerencia estado);
-	public ArrayList<Usuario> likesSugerencia(@Param("id")int id);//falta
+	public ArrayList<Usuario> likesSugerencia(@Param("id")int id);
+	public ArrayList<Sugerencia> verSugerenciasUsuario(@Param("correo") String id);
 }

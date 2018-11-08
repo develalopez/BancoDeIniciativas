@@ -13,14 +13,19 @@ import edu.eci.pdsw.BancoDeIniciativas.entities.EstadoSugerencia;
 import edu.eci.pdsw.BancoDeIniciativas.entities.Sugerencia;
 import edu.eci.pdsw.BancoDeIniciativas.entities.Tema;
 import edu.eci.pdsw.BancoDeIniciativas.entities.Usuario;
+import edu.eci.pdsw.BancoDeIniciativas.sample.services.Services;
+import edu.eci.pdsw.BancoDeIniciativas.sample.services.ServicesException;
 
 @ManagedBean(name = "sugerenciaBean")
 @RequestScoped
 public class SugerenciaBean {
+	@Inject
+	Services service;
 	@ManagedProperty(value = "#{param.usuario}")
+	private String usuario;
 	private String mensaje;
 	private String palabrasClave;
-	private String usuario;
+	
 	// private Tema tema;
 	// desplebagle para escoger tema
 	private Date fechaCreacion;
@@ -43,12 +48,12 @@ public class SugerenciaBean {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public void registrarSugerencia() {
+	public void registrarSugerencia() throws ServicesException {
 		//cambiar usuario cuando este services terminado
 		//tema, desplegable
 		
 		java.sql.Date fecha = new java.sql.Date(System.currentTimeMillis());
-		Sugerencia s=new Sugerencia(1,mensaje,palabrasClave,new Usuario(),new Tema(),
+		Sugerencia s=new Sugerencia(1,mensaje,palabrasClave,service.getUser(usuario),new Tema(),
 				fecha,titulo,new ArrayList<Usuario>());
 		
 	}
@@ -57,6 +62,11 @@ public class SugerenciaBean {
 	}
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
+	}
+	public ArrayList<Sugerencia> getSugerenciasUsuario(){
+		//revisar trace para error
+		return service.getSugerenciasUsuario(usuario);
+		
 	}
 	
 	
