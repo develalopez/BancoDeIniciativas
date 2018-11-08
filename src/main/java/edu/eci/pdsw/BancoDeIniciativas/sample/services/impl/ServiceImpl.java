@@ -1,6 +1,7 @@
 package edu.eci.pdsw.BancoDeIniciativas.sample.services.impl;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -67,6 +68,14 @@ public class ServiceImpl implements Services {
 	public Usuario getUser(String email) throws ServicesException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	public ArrayList<Sugerencia> getSugerenciasUsuario(String correo){
+		return sugerenciaDAO.verSugerenciasUsuario(correo);
+	}
+
+	@Override
+	public ArrayList<Usuario> likesSugerencia(int sugerencia) {
+		return sugerenciaDAO.likesSugerencia(sugerencia);
 	}
 
 }

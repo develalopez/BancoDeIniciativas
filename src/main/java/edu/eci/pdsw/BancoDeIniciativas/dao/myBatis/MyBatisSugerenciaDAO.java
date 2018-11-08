@@ -53,4 +53,11 @@ public class MyBatisSugerenciaDAO implements SugerenciaDAO {
 	public ArrayList<Usuario> likesSugerencia(int id) {
 		return sugerenciaMapper.likesSugerencia(id);
 	}
+
+	@Override
+	public ArrayList<Sugerencia> verSugerenciasUsuario(String id) {
+		return sugerenciaMapper.verSugerenciasUsuario(id);
+	}
+
+	
 }

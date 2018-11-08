@@ -15,6 +15,7 @@ public interface SugerenciaDAO {
 	public ArrayList<Sugerencia> verSugerencias();
 	public void actualizarEstado(int id,EstadoSugerencia estado);
 	public ArrayList<Usuario> likesSugerencia(int id);
+	public ArrayList<Sugerencia> verSugerenciasUsuario(String id);
 	
 	
 }
