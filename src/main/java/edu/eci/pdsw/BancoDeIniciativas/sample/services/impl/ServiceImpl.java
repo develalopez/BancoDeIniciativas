@@ -66,8 +66,7 @@ public class ServiceImpl implements Services {
 
 	@Override
 	public Usuario getUser(String email) throws ServicesException {
-		// TODO Auto-generated method stub
-		return null;
+		return userDAO.load(email);
 	}
 	public ArrayList<Sugerencia> getSugerenciasUsuario(String correo){
 		return sugerenciaDAO.verSugerenciasUsuario(correo);
