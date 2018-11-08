@@ -1,4 +1,4 @@
-package edu.eci.pdsw.BancoDeIniciativas.view;
+package edu.eci.pdsw.BancoDeIniciativas.ManageBean;
 
 import java.sql.Date;
 import java.util.ArrayList;
