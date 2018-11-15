@@ -33,15 +33,8 @@ CREATE TABLE Tema (
 CREATE TABLE Users (
     correo varchar(200)  NOT NULL,
     nombre varchar(100)  NOT NULL,
-    Users_type_id int  NOT NULL,
+    Users_type_id varchar  NOT NULL,
     CONSTRAINT Users_pk PRIMARY KEY (correo)
-);
-
--- Table: Users_type
-CREATE TABLE Users_type (
-    id int  NOT NULL,
-    type_name varchar(64)  NOT NULL,
-    CONSTRAINT Users_type_pk PRIMARY KEY (id)
 );
 /*
 -- foreign keys
@@ -73,14 +66,6 @@ ALTER TABLE Sugerencias ADD CONSTRAINT Sugerencias_Tema
 ALTER TABLE Sugerencias ADD CONSTRAINT Sugerencias_Users
     FOREIGN KEY (Users_correo)
     REFERENCES Users (correo)  
-    NOT DEFERRABLE 
-    INITIALLY IMMEDIATE
-;
-
--- Reference: Users_Users_type (table: Users)
-ALTER TABLE Users ADD CONSTRAINT Users_Users_type
-    FOREIGN KEY (Users_type_id)
-    REFERENCES Users_type (id)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;

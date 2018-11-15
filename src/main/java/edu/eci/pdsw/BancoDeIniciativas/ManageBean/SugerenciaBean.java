@@ -18,7 +18,7 @@ import edu.eci.pdsw.BancoDeIniciativas.sample.services.Services;
 import edu.eci.pdsw.BancoDeIniciativas.sample.services.ServicesException;
 
 @ManagedBean(name = "sugerenciaBean")
-@RequestScoped
+@SessionScoped
 public class SugerenciaBean extends BasePageBean{
 	@Inject
 	Services service;
@@ -56,11 +56,13 @@ public class SugerenciaBean extends BasePageBean{
 		java.sql.Date fecha = new java.sql.Date(System.currentTimeMillis());
 		Sugerencia s=new Sugerencia(1,mensaje,palabrasClave,service.getUser(usuario),new Tema(1,TipoTema.tema1),
 				fecha,titulo,new ArrayList<Usuario>());
+		System.out.println("....................................................................................................");
 		System.out.println(s.getUsuario());
 		System.out.println(s.getUsuario().getCorreo());
 		service.createComment(s);
 	}
 	public String getUsuario() {
+		System.out.println(usuario+"jkashduiasghdashuidasohdasidhasihduiashduiashuda");
 		return usuario;
 	}
 	public void setUsuario(String usuario) {

@@ -1,29 +1,24 @@
 package edu.eci.pdsw.BancoDeIniciativas.ManageBean;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import edu.eci.pdsw.BancoDeIniciativas.entities.Tema;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+import javax.inject.Inject;
+
 import edu.eci.pdsw.BancoDeIniciativas.entities.Usuario;
 import edu.eci.pdsw.BancoDeIniciativas.sample.services.Services;
 import edu.eci.pdsw.BancoDeIniciativas.sample.services.ServicesException;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-import javax.inject.Inject;
-import javax.servlet.http.HttpSession;
-
-
-
-
-@SuppressWarnings("deprecation")
 @ManagedBean(name = "loginBean")
-@SessionScoped
+@RequestScoped
 public class LoginBean extends BasePageBean {
+	
+	private String mail;
+	private String password;
+	private Usuario user;
 
 	/**
 	 * 
@@ -33,50 +28,42 @@ public class LoginBean extends BasePageBean {
 	@Inject
 	Services service;
 
-	public void login(String email) throws ServicesException, IOException {
-		Usuario user = service.getUser(email);
-		FacesContext facesContext = FacesContext.getCurrentInstance();
-		if(user != null) {
-			HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
-			session.setAttribute("correo", user.getCorreo());
-			session.setAttribute("nombre", user.getNombre());
-			facesContext.getExternalContext().redirect("/faces/index.jsp");
-		}
-		else {
-			facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario o clave invalido", "Error"));
+	public void validateUsernamePassword() throws ServicesException {
+		setUser(service.getUser(mail));
+		if (user != null) {
+			System.out.println("In database.");
+		} else {
+			System.out.println("Not in database.");
 		}
 	}
-
-	public boolean isLogged() {
-		return ((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("id") != null;
+	
+	public void showAllUsers() throws ServicesException {
+		List<Usuario> usuarios = service.listUsers();
+		usuarios.forEach(u -> System.out.println(u.getCorreo()));
 	}
-
-	public String getNombre() {
-		return ((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("nombre").toString();
+	
+	public String getMail() {
+		return mail;
 	}
-
-	public List<Usuario> getUsers() throws Exception{
-		try {
-			return service.listUsers();
-		}
-		catch(ServicesException ex) {
-			throw ex;
-		}
+	
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
-
-	public List<Tema> getTypes (){
-		return Arrays.asList(Tema.class.getEnumConstants() );
-
+	
+	public String getPassword() {
+		return password;
 	}
-
-	public void modifyUser(String email, int rol) {
-		try {
-			System.out.println(email+" "+rol);
-			service.modifyUser(email, rol);
-		} catch (ServicesException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public Usuario getUser() {
+		return user;
+	}
+	
+	public void setUser(Usuario user) {
+		this.user = user;
 	}
 
 }

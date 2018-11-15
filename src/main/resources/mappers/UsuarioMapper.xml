@@ -13,12 +13,8 @@
 		(#{iduser.correo},#{iduser.nombre},#{iduser.users_type_id})
 	</insert>
 	<select id="consultarUsuarios" resultMap="UsuarioResult1">
-		select
-		*
-		FROM
-		users
-		order
-		by correo ASC
+		select *
+		FROM users
 	</select>
 	<select id="consultarUsuario" resultMap="UsuarioResult1">
 		select
@@ -34,9 +30,9 @@
 		users as u,likes as li,sugerencias as su
 		where li.users_correo = #{iduser} and li.sugerencias_id=su.id 
 	</select>
-	<resultMap type='Usuario' id='UsuarioResult1'>
-		<id property='correo' column='correo' />
-		<result property='nombre' column='nombre' />
-		<result property='tipo' column='Users_type_id' />
+	<resultMap type="Usuario" id="UsuarioResult1">
+		<id property="correo" column="correo" />
+		<result property="nombre" column="nombre" />
+		<result property="tipo" column="users_type_id" />
 	</resultMap>
 </mapper>
