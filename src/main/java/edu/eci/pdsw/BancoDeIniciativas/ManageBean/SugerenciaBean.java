@@ -1,13 +1,16 @@
 package edu.eci.pdsw.BancoDeIniciativas.ManageBean;
 
 import java.sql.Date;
+
 import java.util.ArrayList;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import edu.eci.pdsw.BancoDeIniciativas.entities.EstadoSugerencia;
 import edu.eci.pdsw.BancoDeIniciativas.entities.Sugerencia;
@@ -17,12 +20,16 @@ import edu.eci.pdsw.BancoDeIniciativas.entities.Usuario;
 import edu.eci.pdsw.BancoDeIniciativas.sample.services.Services;
 import edu.eci.pdsw.BancoDeIniciativas.sample.services.ServicesException;
 
+
+@SuppressWarnings("deprecation")
 @ManagedBean(name = "sugerenciaBean")
 @SessionScoped
 public class SugerenciaBean extends BasePageBean{
 	@Inject
 	Services service;
-	@ManagedProperty(value = "#{param.usuario}")
+	
+	private static final long serialVersionUID = 3594009161252782831L;
+
 	private String usuario;
 	private String mensaje;
 	private String palabrasClave;
@@ -54,12 +61,17 @@ public class SugerenciaBean extends BasePageBean{
 		//tema, desplegable
 		
 		java.sql.Date fecha = new java.sql.Date(System.currentTimeMillis());
-		Sugerencia s=new Sugerencia(1,mensaje,palabrasClave,service.getUser(usuario),new Tema(1,TipoTema.tema1),
-				fecha,titulo,new ArrayList<Usuario>());
-		System.out.println("....................................................................................................");
-		System.out.println(s.getUsuario());
-		System.out.println(s.getUsuario().getCorreo());
-		service.createComment(s);
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+		
+		try {
+			Sugerencia s=new Sugerencia(1,mensaje,palabrasClave,service.getUser((String) session.getAttribute("id")),new Tema(1,TipoTema.tema1),
+					fecha,titulo,new ArrayList<Usuario>());
+			service.createComment(s);
+		} catch (ServicesException ex) {
+			throw ex;
+		}
+		
 	}
 	public String getUsuario() {
 		System.out.println(usuario+"jkashduiasghdashuidasohdasidhasihduiashduiashuda");
@@ -69,11 +81,15 @@ public class SugerenciaBean extends BasePageBean{
 		this.usuario = usuario;
 	}
 	public ArrayList<Sugerencia> getSugerenciasUsuario(){
-		//revisar trace para error
-		return service.getSugerenciasUsuario(usuario);
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+		
+		return service.getSugerenciasUsuario((String) session.getAttribute("id"));
 		
 	}
-	
+	public String getName() {
+		return ((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("name").toString();
+	}
 	
 
 }
