@@ -10,7 +10,7 @@
 </h:head>
 <h:body>
  <h:form id="Sugerencias">
-	<h1>Sugerencias de #{sugerenciaBean.usuario} </h1>
+	<h1>Sugerencias de #{sugerenciaBean.getName()} </h1>
 	<p:dataTable id="Sugerencias" var="sugerencia" value="#{sugerenciaBean.sugerenciasUsuario}">
 		<p:column headerText="id">
 			<h:outputText value="#{sugerencia.id}" />

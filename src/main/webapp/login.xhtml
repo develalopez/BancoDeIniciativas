@@ -4,7 +4,7 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-	
+
 <h:head>
 	<title>Login - Banco de Iniciativas</title>
 </h:head>
@@ -13,20 +13,22 @@
 	<h:form>
 		<h3>Login</h3>
 		<h:outputText value="Username" />
-		<h:inputText id="username" value="#{loginBean.mail}"></h:inputText>
+		<h:inputText id="username" binding="#{mail}"></h:inputText>
 		<h:message for="username"></h:message>
-		<br></br><br></br>
-		
+		<br></br>
+		<br></br>
+
 		<h:outputText value="Password" />
-		<h:inputSecret id="password" value="#{loginBean.password}"></h:inputSecret>
+		<h:inputSecret id="password" binding="#{password}"></h:inputSecret>
 		<h:message for="password"></h:message>
-		<br></br><br></br>
-		
-		<h:commandButton action="#{loginBean.validateUsernamePassword}"
-			value="Login" ></h:commandButton>
-	<h:commandButton action="#{loginBean.showAllUsers}"
-			value="Show users"></h:commandButton>
+		<br></br>
+		<br></br>
+
+		<h:commandButton
+			action="#{loginBean.validateUsernamePassword(mail.value,password.value)}"
+			value="Login"></h:commandButton>
+		<h:commandButton action="#{loginBean.showAllUsers}" value="Show users"></h:commandButton>
 	</h:form>
-	
+
 </h:body>
 </html>

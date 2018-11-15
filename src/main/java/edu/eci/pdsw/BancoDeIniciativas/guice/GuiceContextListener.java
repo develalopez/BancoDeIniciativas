@@ -10,6 +10,7 @@ import org.mybatis.guice.datasource.helper.JdbcHelper;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.google.inject.Singleton;
 
 import edu.eci.pdsw.BancoDeIniciativas.dao.SugerenciaDAO;
 import edu.eci.pdsw.BancoDeIniciativas.dao.TemaDAO;

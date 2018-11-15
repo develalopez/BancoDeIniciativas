@@ -1,23 +1,26 @@
 package edu.eci.pdsw.BancoDeIniciativas.ManageBean;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import edu.eci.pdsw.BancoDeIniciativas.entities.Usuario;
 import edu.eci.pdsw.BancoDeIniciativas.sample.services.Services;
 import edu.eci.pdsw.BancoDeIniciativas.sample.services.ServicesException;
 
+@SuppressWarnings("deprecation")
 @ManagedBean(name = "loginBean")
-@RequestScoped
+@SessionScoped
 public class LoginBean extends BasePageBean {
 	
-	private String mail;
-	private String password;
 	private Usuario user;
 
 	/**
@@ -28,12 +31,17 @@ public class LoginBean extends BasePageBean {
 	@Inject
 	Services service;
 
-	public void validateUsernamePassword() throws ServicesException {
-		setUser(service.getUser(mail));
+	public void validateUsernamePassword(String mail, String password) throws ServicesException, IOException {
+		Usuario user = service.getUser(mail);
+		FacesContext facesContext = FacesContext.getCurrentInstance();
 		if (user != null) {
-			System.out.println("In database.");
+			HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+			session.setAttribute("id", user.getCorreo());
+			session.setAttribute("name", user.getNombre());
+			session.setAttribute("type", user.getTipo().ordinal());
+			facesContext.getExternalContext().redirect("/faces/registroSugerencia.xhtml");
 		} else {
-			System.out.println("Not in database.");
+			facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Usuario o clave invalido","Error"));
 		}
 	}
 	
@@ -42,21 +50,7 @@ public class LoginBean extends BasePageBean {
 		usuarios.forEach(u -> System.out.println(u.getCorreo()));
 	}
 	
-	public String getMail() {
-		return mail;
-	}
-	
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
-	
-	public String getPassword() {
-		return password;
-	}
-	
-	public void setPassword(String password) {
-		this.password = password;
-	}
+
 	
 	public Usuario getUser() {
 		return user;
