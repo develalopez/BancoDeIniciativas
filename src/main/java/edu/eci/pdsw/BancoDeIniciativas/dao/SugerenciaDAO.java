@@ -9,13 +9,22 @@ import edu.eci.pdsw.BancoDeIniciativas.entities.Usuario;
 
 public interface SugerenciaDAO {
 	public void agregarSugerencia(Sugerencia sugerencia);
-	public void eliminarSugerencia(int id );
-	public Sugerencia verSugerencia(int id );
-	public void actualizarSugerencia(int id, String mensaje,String palabrasClave,Date fechaModificacion);
+
+	public void eliminarSugerencia(int id);
+
+	public Sugerencia verSugerencia(int id);
+
+	public void actualizarSugerencia(int id, String mensaje, String palabrasClave, Date fechaModificacion);
+
 	public ArrayList<Sugerencia> verSugerencias();
-	public void actualizarEstado(int id,EstadoSugerencia estado);
+
+	public void actualizarEstado(int id, EstadoSugerencia estado);
+
 	public ArrayList<Usuario> likesSugerencia(int id);
+
 	public ArrayList<Sugerencia> verSugerenciasUsuario(String id);
-	
-	
+
+	public ArrayList<Sugerencia> getClave(String clave) ;
+
+
 }

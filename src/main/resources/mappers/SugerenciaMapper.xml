@@ -27,6 +27,10 @@
 		resultMap="SugerenciaResult">
 		SELECT * from sugerencias where users_correo=#{correo};
 	</select>
+	<select parameterType="map" id="searchClave"
+		resultMap="SugerenciaResult">
+		select * from sugerencias where palabras_clave like '%#{clave}%'
+	</select>
 	<select parameterType="map" id="likesSugerencia"
 		resultMap="edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.mappers.UsuarioMapper.UsuarioResult1">
 		SELECT * from sugerencias as s JOIN likes on

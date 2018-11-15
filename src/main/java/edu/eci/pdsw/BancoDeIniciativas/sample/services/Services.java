@@ -76,5 +76,7 @@ public interface Services {
 
 	public ArrayList<Usuario> likesSugerencia(int sugerencia);
 
+	public ArrayList<Sugerencia> getSugerenciasPalabras(String clave);
+
 
 }

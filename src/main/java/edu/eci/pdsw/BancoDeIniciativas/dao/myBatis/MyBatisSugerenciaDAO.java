@@ -59,5 +59,10 @@ public class MyBatisSugerenciaDAO implements SugerenciaDAO {
 		return sugerenciaMapper.verSugerenciasUsuario(id);
 	}
 
+	@Override
+	public ArrayList<Sugerencia> getClave(String clave) {
+		return sugerenciaMapper.searchClave(clave);
+	}
+
 	
 }

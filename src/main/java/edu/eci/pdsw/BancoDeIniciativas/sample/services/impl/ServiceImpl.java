@@ -26,8 +26,6 @@ public class ServiceImpl extends BasePageBean implements Services {
 
 	@Inject
 	private SugerenciaDAO sugerenciaDAO;
-	
-	private Usuario usuariologeado; 
 
 	@Override
 	public void createUser(Usuario user) throws ServicesException {
@@ -82,6 +80,11 @@ public class ServiceImpl extends BasePageBean implements Services {
 	@Override
 	public ArrayList<Usuario> likesSugerencia(int sugerencia) {
 		return sugerenciaDAO.likesSugerencia(sugerencia);
+	}
+
+	@Override
+	public ArrayList<Sugerencia> getSugerenciasPalabras(String clave) {
+		return sugerenciaDAO.getClave(clave);
 	}
 
 }

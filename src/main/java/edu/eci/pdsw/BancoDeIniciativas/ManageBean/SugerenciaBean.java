@@ -33,7 +33,14 @@ public class SugerenciaBean extends BasePageBean{
 	private String usuario;
 	private String mensaje;
 	private String palabrasClave;
+	private String Clave;
 	
+	public String getClave() {
+		return Clave;
+	}
+	public void setClave(String clave) {
+		Clave = clave;
+	}
 	// private Tema tema;
 	// desplebagle para escoger tema
 	private Date fechaCreacion;
@@ -70,6 +77,17 @@ public class SugerenciaBean extends BasePageBean{
 			service.createComment(s);
 		} catch (ServicesException ex) {
 			throw ex;
+		}
+		
+	}
+	public ArrayList<Sugerencia> getPalabraClave() throws ServicesException{
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+		try {
+			return service.getSugerenciasPalabras(Clave);
+		} catch (Exception e) {
+			throw e;
+			// TODO: handle exception
 		}
 		
 	}
