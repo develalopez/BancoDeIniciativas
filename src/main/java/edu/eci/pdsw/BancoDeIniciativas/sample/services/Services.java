@@ -73,6 +73,7 @@ public interface Services {
 	 * 
 	 */
 	public ArrayList<Sugerencia> getSugerenciasUsuario(String correo);
+	public ArrayList<Sugerencia> getSugerenciasAll();
 
 	public ArrayList<Usuario> likesSugerencia(int sugerencia);
 
