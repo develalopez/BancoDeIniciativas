@@ -87,4 +87,10 @@ public class ServiceImpl extends BasePageBean implements Services {
 		return sugerenciaDAO.getClave(clave);
 	}
 
+	@Override
+	public ArrayList<Sugerencia> getSugerenciasAll() {
+		// TODO Auto-generated method stub
+		return sugerenciaDAO.verSugerencias();
+	}
+
 }

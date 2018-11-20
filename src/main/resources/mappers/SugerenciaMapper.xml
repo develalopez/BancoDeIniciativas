@@ -43,7 +43,7 @@
 		fecha_modificacion=#{fecha} where id=#{id};
 	</update>
 	<select parameterType="map" id="verSugerencias" resultMap="SugerenciaResult">
-		SELECT * from sugerencias ;
+		SELECT * from sugerencias;
 	</select>
 	<update parameterType="map" id="actualizarEstado">
 		UPDATE sugerencias SET
