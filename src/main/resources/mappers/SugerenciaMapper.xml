@@ -35,7 +35,7 @@
 		resultMap="edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.mappers.UsuarioMapper.UsuarioResult1">
 		SELECT * from sugerencias as s JOIN likes on
 		s.id=sugerencias_id JOIN users as u
-		ON u.correo=likes.users_correo
+		ON u.correo=likes.users_correo WHERE s.id = #{id};
 	</select>
 	<update parameterType="map" id="actualizarSugerencia">
 		UPDATE sugerencias SET

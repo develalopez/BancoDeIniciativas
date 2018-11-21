@@ -2,19 +2,14 @@ package edu.eci.pdsw.BancoDeIniciativas.ManageBean;
 
 import java.io.IOException;
 import java.sql.Date;
-
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-import edu.eci.pdsw.BancoDeIniciativas.entities.EstadoSugerencia;
 import edu.eci.pdsw.BancoDeIniciativas.entities.Sugerencia;
 import edu.eci.pdsw.BancoDeIniciativas.entities.Tema;
 import edu.eci.pdsw.BancoDeIniciativas.entities.TipoTema;
@@ -26,6 +21,7 @@ import edu.eci.pdsw.BancoDeIniciativas.sample.services.ServicesException;
 @ManagedBean(name = "sugerenciaBean")
 @SessionScoped
 public class SugerenciaBean extends BasePageBean {
+	
 	@Inject
 	Services service;
 
