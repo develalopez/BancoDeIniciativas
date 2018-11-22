@@ -13,7 +13,7 @@ import edu.eci.pdsw.BancoDeIniciativas.sample.services.Services;
 
 @ManagedBean(name = "likesBean")
 @RequestScoped
-public class LikesBean {
+public class LikesBean extends BasePageBean {
 	
 	@Inject
 	Services service;
