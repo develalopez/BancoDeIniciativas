@@ -10,10 +10,11 @@ import org.mybatis.guice.datasource.helper.JdbcHelper;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.google.inject.Singleton;
 
+import edu.eci.pdsw.BancoDeIniciativas.dao.ComentarioDAO;
 import edu.eci.pdsw.BancoDeIniciativas.dao.SugerenciaDAO;
 import edu.eci.pdsw.BancoDeIniciativas.dao.UsuarioDAO;
+import edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.MyBatisComentarioDAO;
 import edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.MyBatisSugerenciaDAO;
 import edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.MyBatisUsuarioDAO;
 import edu.eci.pdsw.BancoDeIniciativas.sample.services.Services;
@@ -34,6 +35,7 @@ public class GuiceContextListener implements ServletContextListener {
 				setEnvironmentId("development");
 				setClassPathResource("mybatis-config.xml");
 
+				bind(ComentarioDAO.class).to(MyBatisComentarioDAO.class);
 				bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
 				bind(SugerenciaDAO.class).to(MyBatisSugerenciaDAO.class);
 				bind(Services.class).to(ServiceImpl.class);
