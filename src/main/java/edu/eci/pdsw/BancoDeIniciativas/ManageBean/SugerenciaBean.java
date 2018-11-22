@@ -11,8 +11,6 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import edu.eci.pdsw.BancoDeIniciativas.entities.Sugerencia;
-import edu.eci.pdsw.BancoDeIniciativas.entities.Tema;
-import edu.eci.pdsw.BancoDeIniciativas.entities.TipoTema;
 import edu.eci.pdsw.BancoDeIniciativas.entities.Usuario;
 import edu.eci.pdsw.BancoDeIniciativas.sample.services.Services;
 import edu.eci.pdsw.BancoDeIniciativas.sample.services.ServicesException;

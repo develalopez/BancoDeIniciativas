@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.eci.pdsw.BancoDeIniciativas.entities.Comentario;
 import edu.eci.pdsw.BancoDeIniciativas.entities.EstadoSugerencia;
 import edu.eci.pdsw.BancoDeIniciativas.entities.Sugerencia;
 import edu.eci.pdsw.BancoDeIniciativas.entities.Usuario;
@@ -73,11 +74,16 @@ public interface Services {
 	 * 
 	 */
 	public ArrayList<Sugerencia> getSugerenciasUsuario(String correo);
+	
 	public ArrayList<Sugerencia> getSugerenciasAll();
 
 	public ArrayList<Usuario> likesSugerencia(int sugerencia);
 
 	public ArrayList<Sugerencia> getSugerenciasPalabras(String clave);
+	
+	public ArrayList<Comentario> getComentariosSugerencia(int idSugerencia);
+	
+	public void createComentario(Comentario comentario);
 
 
 }
