@@ -9,9 +9,5 @@ public class Generators {
 	public static SugerenciaGenerator sugerencias() {
 		return new SugerenciaGenerator();
 	}
-	
-	public static TemaGenerator temas() {
-		return new TemaGenerator();
-	}
 
 }
