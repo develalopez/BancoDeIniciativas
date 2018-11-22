@@ -26,5 +26,11 @@ public interface SugerenciaDAO {
 
 	public ArrayList<Sugerencia> getClave(String clave) ;
 
+	public void darLike(int idSugerencia, String correo);
+
+	public void darDislike(int idSugerencia, String correo);
+
+	public int numeroDeLikes(int idSugerencia);
+
 
 }

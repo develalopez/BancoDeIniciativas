@@ -75,13 +75,13 @@ public class ServiceImpl extends BasePageBean implements Services {
 	@Override
 	public void modifyEstado(int id, EstadoSugerencia estado) throws ServicesException {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public Usuario getUser(String email) throws ServicesException {
 		return userDAO.load(email);
 	}
+	
 	public ArrayList<Sugerencia> getSugerenciasUsuario(String correo){
 		return sugerenciaDAO.verSugerenciasUsuario(correo);
 	}
@@ -110,6 +110,21 @@ public class ServiceImpl extends BasePageBean implements Services {
 	public void createComentario(Comentario comentario) {
 		comentarioDAO.agregarComentario(comentario);
 		
+	}
+
+	@Override
+	public void darLike(int idSugerencia, String correo) {
+		sugerenciaDAO.darLike(idSugerencia, correo);
+	}
+
+	@Override
+	public void darDislike(int idSugerencia, String correo) {
+		sugerenciaDAO.darDislike(idSugerencia, correo);
+	}
+
+	@Override
+	public int numeroDeLikes(int idSugerencia) {
+		return sugerenciaDAO.numeroDeLikes(idSugerencia);
 	}
 
 }

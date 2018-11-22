@@ -85,5 +85,11 @@ public interface Services {
 	
 	public void createComentario(Comentario comentario);
 
+	public void darLike(int idSugerencia, String correo);
+
+	public void darDislike(int idSugerencia, String attribute);
+
+	public int numeroDeLikes(int idSugerencia);
+
 
 }

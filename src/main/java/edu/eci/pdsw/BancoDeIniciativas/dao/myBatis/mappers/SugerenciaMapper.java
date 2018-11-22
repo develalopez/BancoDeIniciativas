@@ -28,4 +28,10 @@ public interface SugerenciaMapper {
 	public ArrayList<Sugerencia> verSugerenciasUsuario(@Param("correo") String id);
 
 	public ArrayList<Sugerencia> searchClave(@Param("clave") String clave);
+
+	public void darLike(@Param("idSugerencia") int idSugerencia, @Param("correo") String correo);
+
+	public void darDislike(@Param("idSugerencia") int idSugerencia, @Param("correo") String correo);
+
+	public int numeroDeLikes(@Param("id") int idSugerencia);
 }

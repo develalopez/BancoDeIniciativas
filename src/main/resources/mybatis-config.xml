@@ -9,7 +9,7 @@
     <typeAliases>
        <typeAlias type='edu.eci.pdsw.BancoDeIniciativas.entities.Usuario' alias='Usuario'/>
        <typeAlias type='edu.eci.pdsw.BancoDeIniciativas.entities.Sugerencia' alias='Sugerencia'/>
-       <typeAlias type='edu.eci.pdsw.BancoDeIniciativas.entities.Comentario' alias='Tema'/>
+       <typeAlias type='edu.eci.pdsw.BancoDeIniciativas.entities.Comentario' alias='Comentario'/>
    </typeAliases>
 
     <environments default="development">

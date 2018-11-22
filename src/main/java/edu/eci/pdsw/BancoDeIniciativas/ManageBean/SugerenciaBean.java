@@ -84,7 +84,10 @@ public class SugerenciaBean extends BasePageBean {
 		} catch (ServicesException ex) {
 			throw ex;
 		}
-
+	}
+	
+	public void eliminarSugerencia() {
+		
 	}
 
 	public ArrayList<Sugerencia> getPalabraClave() throws ServicesException {
@@ -96,11 +99,27 @@ public class SugerenciaBean extends BasePageBean {
 			throw e;
 			// TODO: handle exception
 		}
-
+	}
+	
+	public void darLike(int idSugerencia) throws IOException {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+		service.darLike(idSugerencia, (String) session.getAttribute("id"));
+		facesContext.getExternalContext().redirect("/faces/registroSugerencia.xhtml");
+	}
+	
+	public void darDislike(int idSugerencia) throws IOException {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+		service.darDislike(idSugerencia, (String) session.getAttribute("id"));
+		facesContext.getExternalContext().redirect("/faces/registroSugerencia.xhtml");
+	}
+	
+	public int getNumeroLikes(int idSugerencia) {
+		return service.numeroDeLikes(idSugerencia);
 	}
 
 	public String getUsuario() {
-		System.out.println(usuario + "jkashduiasghdashuidasohdasidhasihduiashduiashuda");
 		return usuario;
 	}
 

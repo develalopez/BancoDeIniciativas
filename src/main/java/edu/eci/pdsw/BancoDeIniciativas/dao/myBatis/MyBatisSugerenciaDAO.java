@@ -64,5 +64,20 @@ public class MyBatisSugerenciaDAO implements SugerenciaDAO {
 		return sugerenciaMapper.searchClave(clave);
 	}
 
+	@Override
+	public void darLike(int idSugerencia, String correo) {
+		sugerenciaMapper.darLike(idSugerencia, correo);
+	}
+
+	@Override
+	public void darDislike(int idSugerencia, String correo) {
+		sugerenciaMapper.darDislike(idSugerencia, correo);
+	}
+
+	@Override
+	public int numeroDeLikes(int idSugerencia) {
+		return sugerenciaMapper.numeroDeLikes(idSugerencia);
+	}
+
 	
 }

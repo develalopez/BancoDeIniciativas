@@ -10,9 +10,14 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css"
 		href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css" />
+	<link rel="stylesheet" type="text/css"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" />
 
 	<script type="text/javascript" charset="utf8"
 		src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
 </h:head>
 <h:body>
 	<h:form id="Sugerencias">
@@ -45,7 +50,11 @@
 			<p:column headerText="Likes">
 				<p:button outcome="likesSugerencia?sugerencia=#{sugerencia.id}"
 					value="Ver Likes" />
-
+			</p:column>
+			<p:column headerText="Comentarios">
+				<p:button
+					outcome="comentariosSugerencia?sugerencia=#{sugerencia.id}"
+					value="Ver Comentarios" />
 			</p:column>
 		</p:dataTable>
 		<br></br>
@@ -73,8 +82,10 @@
 							<td>#{clave.fechaCreacion}</td>
 							<td>#{clave.fechaModificacion}</td>
 							<td>#{clave.estado}</td>
-							<td>#{clave.likes}</td>
-
+							<td>#{sugerenciaBean.getNumeroLikes(clave.id)} <p:commandButton
+									action="#{sugerenciaBean.darLike(clave.id)}" value="Like" /> <p:commandButton
+									action="#{sugerenciaBean.darDislike(clave.id)}" value="Dislike" />
+							</td>
 						</tr>
 					</r:repeat>
 				</tbody>
@@ -91,7 +102,8 @@
 		<p:inputText id="palabrasClave"
 			value="#{sugerenciaBean.palabrasClave}" />
 		<p></p>
-		<p:commandButton value="Registrar" update="Sugerencias, sugerencias_table"
+		<p:commandButton value="Registrar"
+			update="Sugerencias, sugerencias_table"
 			actionListener="#{sugerenciaBean.registrarSugerencia}" />
 	</h:form>
 	<script>

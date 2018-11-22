@@ -5,16 +5,16 @@ import java.sql.Date;
 public class Comentario {
 
 	private int id;
-	private String sugerencias_id;
+	private Sugerencia sugerencia;
 	private Date fechaCreacion;
 	private Date fechaModificacion;
 	private String mensaje;
 	private Usuario usuario;
 
-	public Comentario(int id, String sugerencias_id, Date fechaCreacion, Date fechaModificacion, String mensaje,
+	public Comentario(int id, Sugerencia sugerencia, Date fechaCreacion, Date fechaModificacion, String mensaje,
 			Usuario usuario) {
 		this.id = id;
-		this.sugerencias_id = sugerencias_id;
+		this.sugerencia = sugerencia;
 		this.fechaCreacion = fechaCreacion;
 		this.fechaModificacion = fechaModificacion;
 		this.mensaje = mensaje;
@@ -29,12 +29,12 @@ public class Comentario {
 		this.id = id;
 	}
 
-	public String getSugerencias_id() {
-		return sugerencias_id;
+	public Sugerencia getSugerencia() {
+		return sugerencia;
 	}
 
-	public void setSugerencias_id(String sugerencias_id) {
-		this.sugerencias_id = sugerencias_id;
+	public void setSugerencia(Sugerencia sugerencia) {
+		this.sugerencia = sugerencia;
 	}
 
 	public Date getFechaCreacion() {

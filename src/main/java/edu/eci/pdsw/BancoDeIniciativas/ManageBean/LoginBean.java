@@ -42,16 +42,7 @@ public class LoginBean extends BasePageBean {
 			facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Usuario o clave invalido","Error"));
 		}
 	}
-	
-	
-	
-	public void showAllUsers() throws ServicesException {
-		List<Usuario> usuarios = service.listUsers();
-		usuarios.forEach(u -> System.out.println(u.getCorreo()));
-	}
-	
-	
-	
+
 	public Usuario getUser() {
 		return user;
 	}
