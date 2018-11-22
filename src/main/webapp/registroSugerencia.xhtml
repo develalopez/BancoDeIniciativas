@@ -26,25 +26,25 @@
 
 		<p:dataTable id="Sugerencias" var="sugerencia"
 			value="#{sugerenciaBean.sugerenciasUsuario}">
-			<p:column headerText="id">
+			<p:column headerText="ID">
 				<h:outputText value="#{sugerencia.id}" />
 			</p:column>
-			<p:column headerText="titulo">
+			<p:column headerText="Titulo">
 				<h:outputText value="#{sugerencia.titulo}" />
 			</p:column>
-			<p:column headerText="sugerencia">
+			<p:column headerText="Sugerencia">
 				<h:outputText value="#{sugerencia.mensaje}" />
 			</p:column>
-			<p:column headerText="palabrasClave">
+			<p:column headerText="Palabras Clave">
 				<h:outputText value="#{sugerencia.palabrasClave}" />
 			</p:column>
-			<p:column headerText="fecha Creacion">
+			<p:column headerText="Fecha de Creacion">
 				<h:outputText value="#{sugerencia.fechaCreacion}" />
 			</p:column>
-			<p:column headerText="fecha Modificacion">
+			<p:column headerText="Fecha de Modificacion">
 				<h:outputText value="#{sugerencia.fechaModificacion}" />
 			</p:column>
-			<p:column headerText="estado">
+			<p:column headerText="Estado">
 				<h:outputText value="#{sugerencia.estado}" />
 			</p:column>
 			<p:column headerText="Likes">
@@ -63,6 +63,7 @@
 			</p:column>
 		</p:dataTable>
 		<br></br>
+		<h1>Sugerencias</h1>
 		<h:panelGroup id="sugerencias_table">
 			<table id="Clavesugerencia">
 				<thead>
@@ -70,11 +71,11 @@
 						<th>Id</th>
 						<th>Titulo</th>
 						<th>Sugerencia</th>
-						<th>palabrasClave</th>
-						<th>fecha Creacion</th>
-						<th>fecha Modificacion</th>
-						<th>estado</th>
-						<th>likes</th>
+						<th>Palabras Clave</th>
+						<th>Fecha de Creación</th>
+						<th>Fecha de Modificación</th>
+						<th>Estado</th>
+						<th>Likes</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -87,10 +88,10 @@
 							<td>#{clave.fechaCreacion}</td>
 							<td>#{clave.fechaModificacion}</td>
 							<td>#{clave.estado}</td>
-							<td>#{sugerenciaBean.getNumeroLikes(clave.id)} <p:commandButton
+							<td>#{sugerenciaBean.getNumeroLikes(clave.id)}</td>
+							<td><p:commandButton
 									action="#{sugerenciaBean.darLike(clave.id)}" value="Like" /> <p:commandButton
-									action="#{sugerenciaBean.darDislike(clave.id)}" value="Dislike" />
-							</td>
+									action="#{sugerenciaBean.darDislike(clave.id)}" value="Dislike" /></td>
 						</tr>
 					</r:repeat>
 				</tbody>
@@ -98,12 +99,12 @@
 		</h:panelGroup>
 
 
-		<h1>Registrar nueva Sugerencia</h1>
-		<p>titulo</p>
+		<h1>Registrar nueva sugerencia</h1>
+		<p>Título</p>
 		<p:inputText id="titulo" value="#{sugerenciaBean.titulo}" />
-		<p>describa su idea</p>
+		<p>Describa su idea</p>
 		<p:inputText id="mensaje" value="#{sugerenciaBean.mensaje}" />
-		<p>escriba palabras clave separadas por comas (,)</p>
+		<p>Escriba palabras clave separadas por comas (,)</p>
 		<p:inputText id="palabrasClave"
 			value="#{sugerenciaBean.palabrasClave}" />
 		<p></p>
