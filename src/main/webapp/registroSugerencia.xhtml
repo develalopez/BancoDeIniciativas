@@ -56,6 +56,11 @@
 					outcome="comentariosSugerencia?sugerencia=#{sugerencia.id}"
 					value="Ver Comentarios" />
 			</p:column>
+			<p:column>
+				<p:commandButton
+					action="#{sugerenciaBean.eliminarSugerencia(sugerencia.id)}"
+					value="Borrar sugerencia" />
+			</p:column>
 		</p:dataTable>
 		<br></br>
 		<h:panelGroup id="sugerencias_table">

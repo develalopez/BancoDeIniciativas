@@ -91,5 +91,7 @@ public interface Services {
 
 	public int numeroDeLikes(int idSugerencia);
 
+	public void eliminarSugerencia(int idSugerencia);
+
 
 }

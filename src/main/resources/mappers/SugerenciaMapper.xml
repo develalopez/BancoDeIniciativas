@@ -37,8 +37,8 @@
 	</delete>
 
 	<delete parameterType="map" id="eliminarSugerencia">
-		DELETE * FROM sugerencias WHERE
-		id=#{id};
+		DELETE FROM sugerencias WHERE
+		id = #{id};
 	</delete>
 
 	<select parameterType="map" id="verSugerencia" resultMap="SugerenciaResult">
@@ -60,8 +60,7 @@
 	<select parameterType="map" id="likesSugerencia"
 		resultMap="edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.mappers.UsuarioMapper.UsuarioResult1">
 		SELECT * from sugerencias as s JOIN likes on
-		s.id =
-		likes.sugerencia_id JOIN users as u
+		s.id = likes.sugerencia_id JOIN users as u
 		ON u.correo = likes.users_correo
 		WHERE s.id = #{id};
 	</select>

@@ -127,4 +127,9 @@ public class ServiceImpl extends BasePageBean implements Services {
 		return sugerenciaDAO.numeroDeLikes(idSugerencia);
 	}
 
+	@Override
+	public void eliminarSugerencia(int idSugerencia) {
+		sugerenciaDAO.eliminarSugerencia(idSugerencia);
+	}
+
 }

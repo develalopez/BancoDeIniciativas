@@ -86,8 +86,11 @@ public class SugerenciaBean extends BasePageBean {
 		}
 	}
 	
-	public void eliminarSugerencia() {
-		
+	public void eliminarSugerencia(int idSugerencia) throws IOException {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+		service.eliminarSugerencia(idSugerencia);
+		facesContext.getExternalContext().redirect("/faces/registroSugerencia.xhtml");
 	}
 
 	public ArrayList<Sugerencia> getPalabraClave() throws ServicesException {
