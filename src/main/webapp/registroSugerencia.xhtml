@@ -63,7 +63,7 @@
 			</p:column>
 		</p:dataTable>
 		<br></br>
-		<h1>Sugerencias</h1>
+
 		<h:panelGroup id="sugerencias_table">
 			<table id="Clavesugerencia">
 				<thead>
@@ -75,6 +75,7 @@
 						<th>Fecha de Creación</th>
 						<th>Fecha de Modificación</th>
 						<th>Estado</th>
+						<th>#Likes</th>
 						<th>Likes</th>
 					</tr>
 				</thead>
@@ -92,6 +93,7 @@
 							<td><p:commandButton
 									action="#{sugerenciaBean.darLike(clave.id)}" value="Like" /> <p:commandButton
 									action="#{sugerenciaBean.darDislike(clave.id)}" value="Dislike" /></td>
+
 						</tr>
 					</r:repeat>
 				</tbody>
