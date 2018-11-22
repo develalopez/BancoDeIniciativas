@@ -25,12 +25,11 @@ CREATE TABLE sugerencias (
     id int  NOT NULL,
     mensaje varchar(200)  NOT NULL,
     palabras_clave varchar(200)  NOT NULL,
-    tema varchar(50)  NOT NULL,
+    users_correo varchar(200)  NOT NULL,
     fecha_creacion date  NOT NULL,
     fecha_modificacion date  NOT NULL,
     titulo varchar(50)  NOT NULL,
     estado varchar(20)  NOT NULL,
-    users_correo varchar(200)  NOT NULL,
     CONSTRAINT sugerencias_pk PRIMARY KEY (id)
 );
 

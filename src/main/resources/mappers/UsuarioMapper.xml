@@ -28,7 +28,7 @@
 		su.*
 		FROM
 		users as u,likes as li,sugerencias as su
-		where li.users_correo = #{iduser} and li.sugerencias_id=su.id 
+		where li.users_correo = #{iduser} and li.sugerencias_id=su.id
 	</select>
 	<resultMap type="Usuario" id="UsuarioResult1">
 		<id property="correo" column="correo" />

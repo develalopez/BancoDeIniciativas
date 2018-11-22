@@ -9,8 +9,10 @@ import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
 import edu.eci.pdsw.BancoDeIniciativas.ManageBean.BasePageBean;
+import edu.eci.pdsw.BancoDeIniciativas.dao.ComentarioDAO;
 import edu.eci.pdsw.BancoDeIniciativas.dao.SugerenciaDAO;
 import edu.eci.pdsw.BancoDeIniciativas.dao.UsuarioDAO;
+import edu.eci.pdsw.BancoDeIniciativas.entities.Comentario;
 import edu.eci.pdsw.BancoDeIniciativas.entities.EstadoSugerencia;
 import edu.eci.pdsw.BancoDeIniciativas.entities.Sugerencia;
 import edu.eci.pdsw.BancoDeIniciativas.entities.Usuario;
@@ -21,11 +23,19 @@ import edu.eci.pdsw.BancoDeIniciativas.sample.services.ServicesException;
 @SessionScoped
 public class ServiceImpl extends BasePageBean implements Services {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Inject
 	private UsuarioDAO userDAO;
 
 	@Inject
 	private SugerenciaDAO sugerenciaDAO;
+	
+	@Inject
+	private ComentarioDAO comentarioDAO;
 
 	@Override
 	public void createUser(Usuario user) throws ServicesException {
@@ -46,8 +56,7 @@ public class ServiceImpl extends BasePageBean implements Services {
 
 	@Override
 	public void createComment(Sugerencia sugerencia) throws ServicesException {
-		//como hacer la exception
-				sugerenciaDAO.agregarSugerencia(sugerencia);	
+				sugerenciaDAO.agregarSugerencia(sugerencia);
 	}
 
 	@Override
@@ -89,8 +98,18 @@ public class ServiceImpl extends BasePageBean implements Services {
 
 	@Override
 	public ArrayList<Sugerencia> getSugerenciasAll() {
-		// TODO Auto-generated method stub
 		return sugerenciaDAO.verSugerencias();
+	}
+
+	@Override
+	public ArrayList<Comentario> getComentariosSugerencia(int idSugerencia) {
+		return comentarioDAO.verComentarios(idSugerencia);
+	}
+
+	@Override
+	public void createComentario(Comentario comentario) {
+		comentarioDAO.agregarComentario(comentario);
+		
 	}
 
 }

@@ -9,7 +9,6 @@ public class Sugerencia {
 	private String mensaje;
 	private String palabrasClave;	// Ver si se quedara como string o sera una lista
 	private Usuario usuario;
-	private Tema tema;
 	private Date fechaCreacion;
 	private Date fechaModificacion;
 	private String titulo;
@@ -20,13 +19,12 @@ public class Sugerencia {
 
 	}
 
-	public Sugerencia(int id, String mensaje, String palabrasClave, Usuario usuario, Tema tema, Date fechaCreacion,
+	public Sugerencia(int id, String mensaje, String palabrasClave, Usuario usuario, Date fechaCreacion,
 			String titulo, ArrayList<Usuario> likes) {
 		this.id = id;
 		this.mensaje = mensaje;
 		this.palabrasClave = palabrasClave;
 		this.usuario = usuario;
-		this.tema = tema;
 		this.fechaCreacion = fechaCreacion;
 		this.titulo = titulo;
 		this.likes = likes;
@@ -82,14 +80,6 @@ public class Sugerencia {
 		this.usuario = usuario;
 	}
 
-	public Tema getTema() {
-		return tema;
-	}
-
-	public void setTema(Tema tema) {
-		this.tema = tema;
-	}
-
 	public Date getFechaCreacion() {
 		return fechaCreacion;
 	}
@@ -116,7 +106,7 @@ public class Sugerencia {
 
 	public String toString() {
 
-		return "[Comentario: id: " + id + ", description: " + mensaje + ", Tema: " + tema + ", CreationDate: "
+		return "[Comentario: id: " + id + ", description: " + mensaje + ", CreationDate: "
 				+ fechaCreacion + ", ModifyDate: " + fechaModificacion + ", user: " + usuario + ", status: " + estado + ", likes: "
 				+ likes + "]";
 	}

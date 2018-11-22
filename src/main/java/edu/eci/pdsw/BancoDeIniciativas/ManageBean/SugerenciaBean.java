@@ -11,8 +11,6 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import edu.eci.pdsw.BancoDeIniciativas.entities.Sugerencia;
-import edu.eci.pdsw.BancoDeIniciativas.entities.Tema;
-import edu.eci.pdsw.BancoDeIniciativas.entities.TipoTema;
 import edu.eci.pdsw.BancoDeIniciativas.entities.Usuario;
 import edu.eci.pdsw.BancoDeIniciativas.sample.services.Services;
 import edu.eci.pdsw.BancoDeIniciativas.sample.services.ServicesException;
@@ -79,7 +77,7 @@ public class SugerenciaBean extends BasePageBean {
 
 		try {
 			Sugerencia s = new Sugerencia(1, mensaje, palabrasClave,
-					service.getUser((String) session.getAttribute("id")), new Tema(1, TipoTema.tema1), fecha, titulo,
+					service.getUser((String) session.getAttribute("id")), fecha, titulo,
 					new ArrayList<Usuario>());
 			service.createComment(s);
 			facesContext.getExternalContext().redirect("/faces/registroSugerencia.xhtml");

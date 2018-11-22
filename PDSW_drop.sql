@@ -1,5 +1,9 @@
 -- Created by Vertabelo (http://vertabelo.com)
+<<<<<<< HEAD
 -- Last modification date: 2018-11-21 04:03:28.493
+=======
+-- Last modification date: 2018-11-22 02:26:08.186
+>>>>>>> Implementacion arreglo BaseDatos 1
 
 -- foreign keys
 ALTER TABLE comentario

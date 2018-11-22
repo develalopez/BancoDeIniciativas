@@ -5,19 +5,15 @@ import org.mybatis.guice.datasource.helper.JdbcHelper;
 
 import static com.google.inject.Guice.createInjector;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.inject.Injector;
 
+import edu.eci.pdsw.BancoDeIniciativas.dao.ComentarioDAO;
 import edu.eci.pdsw.BancoDeIniciativas.dao.SugerenciaDAO;
 import edu.eci.pdsw.BancoDeIniciativas.dao.UsuarioDAO;
+import edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.MyBatisComentarioDAO;
 import edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.MyBatisSugerenciaDAO;
 import edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.MyBatisUsuarioDAO;
-import edu.eci.pdsw.BancoDeIniciativas.entities.Usuario;
 import edu.eci.pdsw.BancoDeIniciativas.sample.services.impl.ServiceImpl;
-
-
 
 public class ServicesFactory {
 
@@ -36,6 +32,7 @@ public class ServicesFactory {
                         bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
 						bind(SugerenciaDAO.class).to(MyBatisSugerenciaDAO.class);
                         bind(Services.class).to(ServiceImpl.class);
+                        bind(ComentarioDAO.class).to(MyBatisComentarioDAO.class);
                     }
 
                 }

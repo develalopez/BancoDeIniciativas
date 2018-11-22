@@ -8,15 +8,14 @@ import java.util.ArrayList;
 import org.quicktheories.core.Gen;
 
 import edu.eci.pdsw.BancoDeIniciativas.entities.Sugerencia;
-import edu.eci.pdsw.BancoDeIniciativas.entities.Tema;
 import edu.eci.pdsw.BancoDeIniciativas.entities.Usuario;
 
 public class SugerenciaGenerator {
 
 	public Gen<Sugerencia> any() {
 		return ids().zip(titulos(), mensajes(), fechas(), usuarios(), (id, titulo, mensaje, fechaCreacion, usuario) -> {
-			return (Sugerencia) palabrasClave().zip(temas(), likes(), (palabrasClave, tema, likes) -> new Sugerencia(id,
-					mensaje, palabrasClave, usuario, tema, fechaCreacion, titulo, (ArrayList<Usuario>) likes));
+			return (Sugerencia) palabrasClave().zip(likes(), (palabrasClave, likes) -> new Sugerencia(id,
+					mensaje, palabrasClave, usuario, fechaCreacion, titulo, (ArrayList<Usuario>) likes));
 		});
 	}
 
@@ -26,10 +25,6 @@ public class SugerenciaGenerator {
 
 	public static Gen<List<Usuario>> likes() {
 		return lists().of(UsuarioGenerator.any()).ofSizeBetween(0, 20);
-	}
-
-	public static Gen<Tema> temas() {
-		return TemaGenerator.any();
 	}
 
 	public static Gen<Usuario> usuarios() {

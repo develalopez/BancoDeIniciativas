@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper
-	namespace="edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.mappers.SugerenciaMapper">
+	namespace="edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.mappers.ComentarioMapper">
 
 	<insert parameterType="map" id="agregarSugerencia">
 		INSERT INTO
