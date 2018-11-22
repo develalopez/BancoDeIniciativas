@@ -19,7 +19,7 @@ public class Sugerencia {
 
 	}
 
-	public Sugerencia(int id, String mensaje, String palabrasClave, Usuario usuario, Tema tema, Date fechaCreacion,
+	public Sugerencia(int id, String mensaje, String palabrasClave, Usuario usuario, Date fechaCreacion,
 			String titulo, ArrayList<Usuario> likes) {
 		this.id = id;
 		this.mensaje = mensaje;

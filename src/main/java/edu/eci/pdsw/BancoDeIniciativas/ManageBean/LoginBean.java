@@ -45,12 +45,14 @@ public class LoginBean extends BasePageBean {
 		}
 	}
 	
+	
+	
 	public void showAllUsers() throws ServicesException {
 		List<Usuario> usuarios = service.listUsers();
 		usuarios.forEach(u -> System.out.println(u.getCorreo()));
 	}
 	
-
+	
 	
 	public Usuario getUser() {
 		return user;

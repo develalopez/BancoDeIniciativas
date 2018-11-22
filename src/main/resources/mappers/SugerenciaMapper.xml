@@ -12,9 +12,14 @@
 		(id,mensaje,palabras_clave,users_correo,
 		fecha_creacion,fecha_modificacion,titulo,estado)
 		Values
-		((Select
-		MAX(id)+1 from
-		sugerencias),#{sugerencia.mensaje},#{sugerencia.palabrasClave}
+		(
+		(Select CASE WHEN EXISTS(SELECT id FROM sugerencias WHERE id=1) THEN MAX(id)+1
+		ELSE 1
+		END
+		from
+		sugerencias)
+		
+		,#{sugerencia.mensaje},#{sugerencia.palabrasClave}
 		,#{sugerencia.usuario.correo},#{sugerencia.fechaCreacion}
 		,#{sugerencia.fechaModificacion},#{sugerencia.titulo},#{sugerencia.estado});
 	</insert>

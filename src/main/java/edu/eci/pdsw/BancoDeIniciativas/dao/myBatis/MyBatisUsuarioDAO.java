@@ -17,6 +17,7 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
 	@Override
 	public Usuario load(String id) throws PersistenceException {
 		try {
+			System.out.println(id);
 			return usuarioMapper.consultarUsuario(id);
 		} catch (org.apache.ibatis.exceptions.PersistenceException e) {
 			throw new PersistenceException("Error al consultar el usuario " + id, e);

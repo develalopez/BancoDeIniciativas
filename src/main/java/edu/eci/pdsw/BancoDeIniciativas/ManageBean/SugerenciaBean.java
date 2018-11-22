@@ -79,7 +79,7 @@ public class SugerenciaBean extends BasePageBean {
 
 		try {
 			Sugerencia s = new Sugerencia(1, mensaje, palabrasClave,
-					service.getUser((String) session.getAttribute("id")), new Tema(1, TipoTema.tema1), fecha, titulo,
+					service.getUser((String) session.getAttribute("id")), fecha, titulo,
 					new ArrayList<Usuario>());
 			service.createComment(s);
 			facesContext.getExternalContext().redirect("/faces/registroSugerencia.xhtml");
