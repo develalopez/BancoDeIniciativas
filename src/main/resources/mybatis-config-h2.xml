@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
    <typeAliases>
        <typeAlias type='edu.eci.pdsw.BancoDeIniciativas.entities.Usuario' alias='Usuario'/>
        <typeAlias type='edu.eci.pdsw.BancoDeIniciativas.entities.Sugerencia' alias='Sugerencia'/>
-       <typeAlias type='edu.eci.pdsw.BancoDeIniciativas.entities.Tema' alias='Tema'/>
+       <typeAlias type='edu.eci.pdsw.BancoDeIniciativas.entities.Comentario' alias='Tema'/>
    </typeAliases>
 
    <environments default="test">
@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
    <mappers>
        <mapper resource="mappers/UsuarioMapper.xml"></mapper>
        <mapper resource="mappers/SugerenciaMapper.xml"></mapper>
-       <mapper resource="mappers/TemaMapper.xml"></mapper>
+       <mapper resource="mappers/ComentarioMapper.xml"></mapper>
    </mappers> 
 
 </configuration>

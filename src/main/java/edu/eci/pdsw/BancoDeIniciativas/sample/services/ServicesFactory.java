@@ -15,8 +15,6 @@ import edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.MyBatisSugerenciaDAO;
 import edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.MyBatisUsuarioDAO;
 import edu.eci.pdsw.BancoDeIniciativas.sample.services.impl.ServiceImpl;
 
-
-
 public class ServicesFactory {
 
     private static ServicesFactory instance = new ServicesFactory();

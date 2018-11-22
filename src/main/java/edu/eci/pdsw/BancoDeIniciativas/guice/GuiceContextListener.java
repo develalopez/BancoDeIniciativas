@@ -13,10 +13,8 @@ import com.google.inject.Injector;
 import com.google.inject.Singleton;
 
 import edu.eci.pdsw.BancoDeIniciativas.dao.SugerenciaDAO;
-import edu.eci.pdsw.BancoDeIniciativas.dao.TemaDAO;
 import edu.eci.pdsw.BancoDeIniciativas.dao.UsuarioDAO;
 import edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.MyBatisSugerenciaDAO;
-import edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.MyBatisTemaDAO;
 import edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.MyBatisUsuarioDAO;
 import edu.eci.pdsw.BancoDeIniciativas.sample.services.Services;
 import edu.eci.pdsw.BancoDeIniciativas.sample.services.impl.ServiceImpl;
@@ -38,7 +36,6 @@ public class GuiceContextListener implements ServletContextListener {
 
 				bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
 				bind(SugerenciaDAO.class).to(MyBatisSugerenciaDAO.class);
-				bind(TemaDAO.class).to(MyBatisTemaDAO.class);
 				bind(Services.class).to(ServiceImpl.class);
 			}
 		});
