@@ -8,45 +8,74 @@
 
 <h:head>
 	<title></title>
+	<meta
+		content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+		name='viewport' />
+	<!--     Fonts and icons     -->
+	<link rel="stylesheet" type="text/css"
+		href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+	<!-- CSS Files -->
+	<link href="../assets/css/material-dashboard.css?v=2.1.1"
+		rel="stylesheet" />
 	<link rel="stylesheet" type="text/css"
 		href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css" />
 	<link rel="stylesheet" type="text/css"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css"
 		href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" />
-
 	<script type="text/javascript" charset="utf8"
 		src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 
 </h:head>
 <h:body>
 	<h:form id="Sugerencias">
-		<h1>Sugerencias de #{sugerenciaBean.getName()}</h1>
+		<div class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-header card-header-primary">
+								<h4 class="card-title ">Sugerencias de
+									#{sugerenciaBean.getName()}</h4>
+							</div>
+							<div class="card-body">
+								<div class="table-responsive">
+									<table class="table">
+										<thead class="text-danger">
+											<th>Id</th>
+											<th>Titulo</th>
+											<th>Sugerencia</th>
+											<th>Palabras Clave</th>
+											<th>Fecha de Creación</th>
+											<th>Fecha de Modificación</th>
+											<th>Estado</th>
+										</thead>
+										<tbody>
+											<r:repeat var="sugerencia"
+												value="#{sugerenciaBean.sugerenciasUsuario}">
+												<tr>
+													<td>#{sugerencia.id}</td>
+													<td>#{sugerencia.titulo}</td>
+													<td>#{sugerencia.mensaje}</td>
+													<td>#{sugerencia.palabrasClave}</td>
+													<td>#{sugerencia.fechaCreacion}</td>
+													<td>#{sugerencia.fechaModificacion}</td>
+													<td>#{sugerencia.estado}</td>
+												</tr>
+											</r:repeat>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 
 		<p:dataTable id="Sugerencias" var="sugerencia"
 			value="#{sugerenciaBean.sugerenciasUsuario}">
-			<p:column headerText="ID">
-				<h:outputText value="#{sugerencia.id}" />
-			</p:column>
-			<p:column headerText="Titulo">
-				<h:outputText value="#{sugerencia.titulo}" />
-			</p:column>
-			<p:column headerText="Sugerencia">
-				<h:outputText value="#{sugerencia.mensaje}" />
-			</p:column>
-			<p:column headerText="Palabras Clave">
-				<h:outputText value="#{sugerencia.palabrasClave}" />
-			</p:column>
-			<p:column headerText="Fecha de Creacion">
-				<h:outputText value="#{sugerencia.fechaCreacion}" />
-			</p:column>
-			<p:column headerText="Fecha de Modificacion">
-				<h:outputText value="#{sugerencia.fechaModificacion}" />
-			</p:column>
-			<p:column headerText="Estado">
-				<h:outputText value="#{sugerencia.estado}" />
-			</p:column>
 			<p:column headerText="Likes">
 				<p:button outcome="likesSugerencia?sugerencia=#{sugerencia.id}"
 					value="Ver Likes" />
@@ -64,40 +93,57 @@
 		</p:dataTable>
 		<br></br>
 
-		<h:panelGroup id="sugerencias_table">
-			<table id="Clavesugerencia">
-				<thead>
-					<tr>
-						<th>Id</th>
-						<th>Titulo</th>
-						<th>Sugerencia</th>
-						<th>Palabras Clave</th>
-						<th>Fecha de Creación</th>
-						<th>Fecha de Modificación</th>
-						<th>Estado</th>
-						<th>#Likes</th>
-						<th>Likes</th>
-					</tr>
-				</thead>
-				<tbody>
-					<r:repeat var="clave" value="#{sugerenciaBean.sugerencias}">
-						<tr>
-							<td>#{clave.id}</td>
-							<td>#{clave.titulo}</td>
-							<td>#{clave.mensaje}</td>
-							<td>#{clave.palabrasClave}</td>
-							<td>#{clave.fechaCreacion}</td>
-							<td>#{clave.fechaModificacion}</td>
-							<td>#{clave.estado}</td>
-							<td>#{sugerenciaBean.getNumeroLikes(clave.id)}</td>
-							<td><p:commandButton
-									action="#{sugerenciaBean.darLike(clave.id)}" value="Like" /> <p:commandButton
-									action="#{sugerenciaBean.darDislike(clave.id)}" value="Dislike" /></td>
+		<h:panelGroup class="table" id="sugerencias_table">
+			<div class="content">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header card-header-primary">
+									<h4 class="card-title ">Sugerencias</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table class="table" id="Clavesugerencia">
+											<thead class="text-danger">
+												<th>Id</th>
+												<th>Titulo</th>
+												<th>Sugerencia</th>
+												<th>Palabras Clave</th>
+												<th>Fecha de Creación</th>
+												<th>Fecha de Modificación</th>
+												<th>Estado</th>
+												<th>#Likes</th>
+												<th>Likes</th>
+											</thead>
+											<tbody>
+												<r:repeat var="clave" value="#{sugerenciaBean.sugerencias}">
+													<tr>
+														<td>#{clave.id}</td>
+														<td>#{clave.titulo}</td>
+														<td>#{clave.mensaje}</td>
+														<td>#{clave.palabrasClave}</td>
+														<td>#{clave.fechaCreacion}</td>
+														<td>#{clave.fechaModificacion}</td>
+														<td>#{clave.estado}</td>
+														<td>#{sugerenciaBean.getNumeroLikes(clave.id)}</td>
+														<td><p:commandButton
+																action="#{sugerenciaBean.darLike(clave.id)}"
+																value="Like" /> <p:commandButton
+																action="#{sugerenciaBean.darDislike(clave.id)}"
+																value="Dislike" /></td>
 
-						</tr>
-					</r:repeat>
-				</tbody>
-			</table>
+													</tr>
+												</r:repeat>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</h:panelGroup>
 
 
