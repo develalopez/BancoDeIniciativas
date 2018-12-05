@@ -108,14 +108,14 @@ public class SugerenciaBean extends BasePageBean {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
 		service.darLike(idSugerencia, (String) session.getAttribute("id"));
-		facesContext.getExternalContext().redirect("/faces/registroSugerencia.xhtml");
+		facesContext.getExternalContext().redirect("/faces/Sugerencia2.xhtml");
 	}
 	
 	public void darDislike(int idSugerencia) throws IOException {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
 		service.darDislike(idSugerencia, (String) session.getAttribute("id"));
-		facesContext.getExternalContext().redirect("/faces/registroSugerencia.xhtml");
+		facesContext.getExternalContext().redirect("/faces/Sugerencia2.xhtml");
 	}
 	
 	public int getNumeroLikes(int idSugerencia) {
