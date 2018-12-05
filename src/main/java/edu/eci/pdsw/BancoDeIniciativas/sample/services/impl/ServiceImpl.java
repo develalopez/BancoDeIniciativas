@@ -55,7 +55,7 @@ public class ServiceImpl extends BasePageBean implements Services {
 	}
 
 	@Override
-	public void createComment(Sugerencia sugerencia) throws ServicesException {
+	public void createSugerencia(Sugerencia sugerencia) throws ServicesException {
 				sugerenciaDAO.agregarSugerencia(sugerencia);
 	}
 

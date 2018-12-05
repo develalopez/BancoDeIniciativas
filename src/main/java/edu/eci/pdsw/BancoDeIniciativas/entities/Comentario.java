@@ -11,12 +11,12 @@ public class Comentario {
 	private String mensaje;
 	private Usuario usuario;
 
-	public Comentario(int id, Sugerencia sugerencia, Date fechaCreacion, Date fechaModificacion, String mensaje,
+	public Comentario(int id, Sugerencia sugerencia, Date fechaCreacion, String mensaje,
 			Usuario usuario) {
 		this.id = id;
 		this.sugerencia = sugerencia;
 		this.fechaCreacion = fechaCreacion;
-		this.fechaModificacion = fechaModificacion;
+		this.fechaModificacion = null;
 		this.mensaje = mensaje;
 		this.usuario = usuario;
 	}

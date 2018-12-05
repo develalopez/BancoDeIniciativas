@@ -21,7 +21,7 @@ public class MyBatisComentarioDAO implements ComentarioDAO{
 
 	@Override
 	public void agregarComentario(Comentario comentario) {
-		comentarioMapper.agregarComentario(comentario);		
+		comentarioMapper.agregarComentario(comentario);
 	}
 
 }

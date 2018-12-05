@@ -128,6 +128,9 @@
 														<td>#{clave.estado}</td>
 														<td>#{sugerenciaBean.getNumeroLikes(clave.id)}</td>
 														<td><p:commandButton
+																action="#{comentarioBean.registrarComentario(clave.id)}"
+																value="Comentar" />
+														<p:commandButton
 																action="#{sugerenciaBean.darLike(clave.id)}"
 																value="Like" /> <p:commandButton
 																action="#{sugerenciaBean.darDislike(clave.id)}"

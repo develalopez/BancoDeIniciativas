@@ -5,18 +5,37 @@
 
 <mapper
 	namespace="edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.mappers.ComentarioMapper">
-	
+
 	<select parameterType="map" id="verComentarios" resultMap="ComentarioResult">
 		SELECT * from comentario WHERE sugerencias_id = #{idSugerencia};
 	</select>
+
+	<insert parameterType="map" id="agregarComentario">
+		INSERT INTO
+		comentario
+		(id,sujerencia_id,fecha_creacion,fecha_modificacion,mensaje,users_correo)
+		Values
+		(
+		(Select CASE
+		WHEN EXISTS(SELECT id FROM comentario WHERE id=1)
+		THEN MAX(id)+1
+		ELSE
+		1
+		END
+		from
+		comentario)
+
+		,#{comentario.sugerencia.id},#{comentario.fechaCreacion},#{comentario.fechaModificacion}
+		,#{comentario.mensaje},#{comentario.usuario.correo});
+	</insert>
 
 	<resultMap type='Comentario' id='ComentarioResult'>
 		<id property='id' column='id' />
 		<result property='mensaje' column='mensaje' />
 		<result property='fechaCreacion' column='fecha_creacion' />
-		<association property='sugerencia' column='sugerencias_id' 
-		    javaType='Sugerencia'
-		    resultMap='edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.mappers.SugerenciaMapper.SugerenciaResult' />
+		<association property='sugerencia' column='sugerencias_id'
+			javaType='Sugerencia'
+			resultMap='edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.mappers.SugerenciaMapper.SugerenciaResult' />
 		<association property='usuario' column='users_correo'
 			javaType="Usuario"
 			resultMap='edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.mappers.UsuarioMapper.UsuarioResult1' />

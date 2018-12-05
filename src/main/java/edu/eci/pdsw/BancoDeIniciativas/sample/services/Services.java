@@ -36,7 +36,7 @@ public interface Services {
 	 * @param tema
 	 * @throws ServicesException
 	 */
-	public void createComment(Sugerencia sugerencia) throws ServicesException;
+	public void createSugerencia(Sugerencia sugerencia) throws ServicesException;
 
 	/**
 	 * public List<Sugerencia> searchCommentsBySugenrencia (int id) throws
