@@ -70,6 +70,7 @@ public class SugerenciaBean extends BasePageBean {
 	public void registrarSugerencia() throws ServicesException, IOException {
 		// cambiar usuario cuando este services terminado
 		// tema, desplegable
+		System.out.println(mensaje);
 
 		java.sql.Date fecha = new java.sql.Date(System.currentTimeMillis());
 		FacesContext facesContext = FacesContext.getCurrentInstance();
