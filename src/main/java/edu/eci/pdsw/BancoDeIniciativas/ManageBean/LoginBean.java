@@ -10,6 +10,8 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.h2.command.ddl.AlterTableAddConstraint;
+
 import edu.eci.pdsw.BancoDeIniciativas.entities.Usuario;
 import edu.eci.pdsw.BancoDeIniciativas.sample.services.Services;
 import edu.eci.pdsw.BancoDeIniciativas.sample.services.ServicesException;
