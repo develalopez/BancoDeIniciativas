@@ -134,6 +134,7 @@
 					<li><a href="Sugerencia2.xhtml"> <i class="material-icons">assignment</i>
 							<p>Iniciativas</p>
 					</a></li>
+
 				</ul>
 			</div>
 		</div>
@@ -154,6 +155,70 @@
 							class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" href="#">Tablero</a>
+
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#pablo" class="dropdown-toggle"
+							data-toggle="dropdown"> <i class="material-icons">dashboard</i>
+								<p class="hidden-lg hidden-md">Tablero</p>
+						</a></li>
+
+						<li><a href="#pablo" class="dropdown-toggle"
+							data-toggle="dropdown"> <i class="material-icons">person</i>
+								<p class="hidden-lg hidden-md">Perfil</p>
+						</a></li>
+						<li class="separator hidden-lg hidden-md"></li>
+						<button type="button" class="btn btn-primary" data-toggle="modal"
+							data-target="#exampleModal" data-whatever="@mdo">Agregar
+							Una Iniciativa</button>
+						<div class="modal fade" id="exampleModal" tabindex="-1"
+							role="dialog" aria-labelledby="exampleModalLabel"
+							aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<h:form>
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">New
+												message</h5>
+										</div>
+										<div class="modal-body">
+											<h:form>
+												<div class="form-group">
+													<label for="titulo" class="col-form-label">Titulo:</label>
+													<p:inputText type="text" id="titulo" class="form-control"
+														value="#{sugerenciaBean.titulo}" />
+												</div>
+												<div class="form-group">
+													<label for="mensaje" class="col-form-label">Message:</label>
+													<p:inputTextarea class="form-control" id="mensaje"
+														value="#{sugerenciaBean.mensaje}" />
+												</div>
+												<div class="form-group">
+													<label for="recipient-name" class="col-form-label">Clave:</label>
+													<p:inputText type="text" class="form-control"
+														id="palabrasClave" value="#{sugerenciaBean.palabrasClave}" />
+												</div>
+
+											</h:form>
+
+										</div>
+										<div class="modal-footer">
+
+											<button type="button" class="btn btn-secondary"
+												data-dismiss="modal">Close</button>
+
+											<p:commandButton value="Send" type="submit"
+												class="btn btn-primary btn-wd "
+												actionListener="#{sugerenciaBean.registrarSugerencia}"></p:commandButton>
+
+										</div>
+									</div>
+								</h:form>
+							</div>
+						</div>
+					</ul>
+
 				</div>
 
 			</div>
@@ -224,7 +289,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row" id="sugerencias_table">
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header card-header-icon"
@@ -238,13 +303,15 @@
 										<table id="datatables"
 											class="table table-striped table-no-bordered table-hover"
 											cellspacing="0" width="100%" style="width: 100%">
-											<thead >
+											<thead>
 												<tr>
 													<th class="disabled-sorting text-center">Autor</th>
 													<th class="disabled-sorting text-center">Iniciativa</th>
-													<th class="disabled-sorting text-center">Palabras Clave</th>
+													<th class="disabled-sorting text-center">Palabras
+														Clave</th>
 													<th class="disabled-sorting text-center">Postulada en</th>
-													<th class="disabled-sorting text-center">Última modificación</th>
+													<th class="disabled-sorting text-center">Última
+														modificación</th>
 													<th class="disabled-sorting text-center">Likes</th>
 													<th class="disabled-sorting text-center">Comentarios</th>
 													<th class="disabled-sorting text-center">Interesados</th>
@@ -252,12 +319,14 @@
 												</tr>
 											</thead>
 											<tfoot>
-												<tr >
-														<th class="disabled-sorting text-center">Autor</th>
+												<tr>
+													<th class="disabled-sorting text-center">Autor</th>
 													<th class="disabled-sorting text-center">Iniciativa</th>
-													<th class="disabled-sorting text-center">Palabras Clave</th>
+													<th class="disabled-sorting text-center">Palabras
+														Clave</th>
 													<th class="disabled-sorting text-center">Postulada en</th>
-													<th class="disabled-sorting text-center">Última modificación</th>
+													<th class="disabled-sorting text-center">Última
+														modificación</th>
 													<th class="disabled-sorting text-center">Likes</th>
 													<th class="disabled-sorting text-center">Comentarios</th>
 													<th class="disabled-sorting text-center">Interesados</th>
@@ -274,7 +343,8 @@
 														<td>#{sugerencia.palabrasClave}</td>
 														<td>#{sugerencia.fechaCreacion}</td>
 
-														<td><p:button class="btn btn-simple btn-danger btn-lg"
+														<td><p:button
+																class="btn btn-simple btn-danger btn-lg"
 																outcome="likesSugerencia?sugerencia=#{sugerencia.id}"
 																value="Ver Likes" /></td>
 														<td>#{sugerencia.fechaModificacion}</td>
