@@ -37,8 +37,7 @@
 	</delete>
 
 	<delete parameterType="map" id="eliminarSugerencia">
-		DELETE FROM sugerencias WHERE
-		id = #{id};
+		DELETE FROM sugerencias WHERE id = #{id};
 	</delete>
 
 	<select parameterType="map" id="verSugerencia" resultMap="SugerenciaResult">

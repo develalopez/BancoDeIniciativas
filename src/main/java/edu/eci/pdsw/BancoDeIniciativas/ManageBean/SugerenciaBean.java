@@ -80,7 +80,7 @@ public class SugerenciaBean extends BasePageBean {
 					service.getUser((String) session.getAttribute("id")), fecha, titulo,
 					new ArrayList<Usuario>());
 			service.createSugerencia(s);
-			facesContext.getExternalContext().redirect("/faces/registroSugerencia.xhtml");
+			facesContext.getExternalContext().redirect("/faces/tablero.xhtml");
 		} catch (ServicesException ex) {
 			throw ex;
 		}
@@ -90,7 +90,7 @@ public class SugerenciaBean extends BasePageBean {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
 		service.eliminarSugerencia(idSugerencia);
-		facesContext.getExternalContext().redirect("/faces/registroSugerencia.xhtml");
+		facesContext.getExternalContext().redirect("/faces/tablero.xhtml");
 	}
 
 	public ArrayList<Sugerencia> getPalabraClave() throws ServicesException {
