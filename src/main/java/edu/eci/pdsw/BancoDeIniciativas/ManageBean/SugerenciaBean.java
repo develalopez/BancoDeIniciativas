@@ -137,6 +137,27 @@ public class SugerenciaBean extends BasePageBean {
 		return service.getSugerenciasUsuario((String) session.getAttribute("id"));
 
 	}
+	public int getLikesUsuario() {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+
+		return service.getLikesUsuario((String) session.getAttribute("id"));
+
+	}
+	public int getComentariosUsuario() {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+
+		return service.getnumComentariosUsuario((String) session.getAttribute("id"));
+
+	}
+	public int getNumSugerenciasUsuario() {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+
+		return service.getnumSugerenciassUsuario((String) session.getAttribute("id"));
+
+	}
 
 	public ArrayList<Sugerencia> getSugerencias() {
 

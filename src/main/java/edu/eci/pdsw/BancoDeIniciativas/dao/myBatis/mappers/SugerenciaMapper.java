@@ -34,4 +34,6 @@ public interface SugerenciaMapper {
 	public void darDislike(@Param("idSugerencia") int idSugerencia, @Param("correo") String correo);
 
 	public int numeroDeLikes(@Param("id") int idSugerencia);
+
+	public int getnumSugerenciassUsuario(@Param("id") String id);
 }

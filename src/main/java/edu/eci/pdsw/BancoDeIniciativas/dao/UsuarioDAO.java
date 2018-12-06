@@ -16,4 +16,6 @@ public interface UsuarioDAO {
 
 	void save(Usuario id) throws PersistenceException;
 
+	int getLikesUsuario(String id);
+
 }

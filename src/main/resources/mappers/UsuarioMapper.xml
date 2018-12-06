@@ -30,6 +30,18 @@
 		users as u,likes as li,sugerencias as su
 		where li.users_correo = #{iduser} and li.sugerencias_id=su.id
 	</select>
+	<select id="getLikesUsuario" resultMap="likesResult">
+	SELECT COUNT(*) as totalLikes 
+	FROM sugerencias as s JOIN likes on
+		s.id = likes.sugerencia_id JOIN users as u
+		ON u.correo = likes.users_correo
+	WHERE
+	u.correo=#{id}
+	</select>
+	<resultMap type="java.lang.Integer" id="likesResult"> 
+     <result property="" column="totalLikes"/> 
+</resultMap>
+	
 	<resultMap type="Usuario" id="UsuarioResult1">
 		<id property="correo" column="correo" />
 		<result property="nombre" column="nombre" />

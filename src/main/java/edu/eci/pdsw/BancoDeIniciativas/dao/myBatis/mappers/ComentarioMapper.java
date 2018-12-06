@@ -12,4 +12,6 @@ public interface ComentarioMapper {
 
 	public void agregarComentario(@Param("comentario") Comentario comentario);
 
+	public int getnumComentariosUsuario(@Param("id")String id);
+
 }
