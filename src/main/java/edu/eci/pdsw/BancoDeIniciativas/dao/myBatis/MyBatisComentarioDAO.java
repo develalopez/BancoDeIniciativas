@@ -24,4 +24,9 @@ public class MyBatisComentarioDAO implements ComentarioDAO{
 		comentarioMapper.agregarComentario(comentario);
 	}
 
+	@Override
+	public int getnumComentariosUsuario(String id) {
+		return comentarioMapper.getnumComentariosUsuario(id);
+	}
+
 }

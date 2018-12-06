@@ -79,5 +79,11 @@ public class MyBatisSugerenciaDAO implements SugerenciaDAO {
 		return sugerenciaMapper.numeroDeLikes(idSugerencia);
 	}
 
+	@Override
+	public int getnumSugerenciassUsuario(String id) {
+		
+		return sugerenciaMapper.getnumSugerenciassUsuario(id);
+	}
+
 	
 }

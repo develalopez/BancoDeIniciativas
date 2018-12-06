@@ -53,4 +53,10 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
 
 	}
 
+	@Override
+	public int getLikesUsuario(String id) {
+		
+		return usuarioMapper.getLikesUsuario(id);
+	}
+
 }

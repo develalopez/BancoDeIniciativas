@@ -28,6 +28,14 @@
 		,#{comentario.sugerencia.id},#{comentario.fechaCreacion},#{comentario.fechaModificacion}
 		,#{comentario.mensaje},#{comentario.usuario.correo});
 	</insert>
+	<select id="getnumComentariosUsuario" resultMap="numComentsResult">
+	SELECT COUNT(*) as totalLikes 
+	FROM sugerencias as s JOIN comentario on
+		s.id = comentario.sugerencia_id JOIN users as u
+		ON u.correo = s.users_correo
+	WHERE
+	u.correo=#{id}
+	</select>
 
 	<resultMap type='Comentario' id='ComentarioResult'>
 		<id property='id' column='id' />
@@ -40,5 +48,8 @@
 			javaType="Usuario"
 			resultMap='edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.mappers.UsuarioMapper.UsuarioResult1' />
 	</resultMap>
+	<resultMap type="java.lang.Integer" id="numComentsResult"> 
+     <result property="" column="totalLikes"/> 
+</resultMap>
 
 </mapper>
