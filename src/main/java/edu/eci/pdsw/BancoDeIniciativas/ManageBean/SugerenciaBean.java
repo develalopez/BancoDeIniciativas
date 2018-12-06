@@ -91,7 +91,7 @@ public class SugerenciaBean extends BasePageBean {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
 		service.eliminarSugerencia(idSugerencia);
-		facesContext.getExternalContext().redirect("/faces/registroSugerencia.xhtml");
+		facesContext.getExternalContext().redirect("/faces/tablero.xhtml");
 	}
 
 	public ArrayList<Sugerencia> getPalabraClave() throws ServicesException {
@@ -136,6 +136,27 @@ public class SugerenciaBean extends BasePageBean {
 		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
 
 		return service.getSugerenciasUsuario((String) session.getAttribute("id"));
+
+	}
+	public int getLikesUsuario() {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+
+		return service.getLikesUsuario((String) session.getAttribute("id"));
+
+	}
+	public int getComentariosUsuario() {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+
+		return service.getnumComentariosUsuario((String) session.getAttribute("id"));
+
+	}
+	public int getNumSugerenciasUsuario() {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+
+		return service.getnumSugerenciassUsuario((String) session.getAttribute("id"));
 
 	}
 

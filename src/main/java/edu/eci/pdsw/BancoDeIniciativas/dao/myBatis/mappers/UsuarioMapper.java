@@ -15,4 +15,6 @@ public interface UsuarioMapper {
 	Usuario consultarUsuarioLikes(@Param("iduser") String id);
 
 	Usuario registrarUsuario(@Param("user") Usuario user);
+
+	int getLikesUsuario(@Param("id") String id);
 }

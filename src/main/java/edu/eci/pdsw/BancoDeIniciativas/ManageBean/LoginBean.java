@@ -39,7 +39,7 @@ public class LoginBean extends BasePageBean {
 			session.setAttribute("id", user.getCorreo());
 			session.setAttribute("name", user.getNombre());
 			session.setAttribute("type", user.getTipo().ordinal());
-			facesContext.getExternalContext().redirect("/faces/registroSugerencia.xhtml");
+			facesContext.getExternalContext().redirect("/faces/tablero.xhtml");
 		} else {
 			facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Usuario o clave invalido","Error"));
 		}

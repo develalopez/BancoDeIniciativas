@@ -37,8 +37,7 @@
 	</delete>
 
 	<delete parameterType="map" id="eliminarSugerencia">
-		DELETE FROM sugerencias WHERE
-		id = #{id};
+		DELETE FROM sugerencias WHERE id = #{id};
 	</delete>
 
 	<select parameterType="map" id="verSugerencia" resultMap="SugerenciaResult">
@@ -83,7 +82,9 @@
 		UPDATE sugerencias SET
 		estado=#{estado} where id=#{id};
 	</update>
-
+	<select  id="getnumSugerenciassUsuario" resultMap="sugerenciasResult2">
+		SELECT COUNT(*) as totalsugerencias from sugerencias where sugerencias.users_correo=#{id};
+	</select>
 	<resultMap type='Sugerencia' id='SugerenciaResult'>
 		<id property='id' column='id' />
 		<result property='mensaje' column='mensaje' />
@@ -102,5 +103,7 @@
 		<collection property='likes' ofType='Usuario'
 			resultMap='edu.eci.pdsw.BancoDeIniciativas.dao.myBatis.mappers.UsuarioMapper.UsuarioResult1'></collection>
 	</resultMap>
-
+	<resultMap type="java.lang.Integer" id="sugerenciasResult2"> 
+     <result property="" column="totalsugerencias"/> 
+</resultMap>
 </mapper>

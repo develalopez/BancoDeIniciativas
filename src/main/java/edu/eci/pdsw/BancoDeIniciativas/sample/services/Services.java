@@ -93,5 +93,11 @@ public interface Services {
 
 	public void eliminarSugerencia(int idSugerencia);
 
+	public int getLikesUsuario(String id );
+
+	public int getnumComentariosUsuario(String id);
+
+	public int getnumSugerenciassUsuario(String attribute);
+
 
 }

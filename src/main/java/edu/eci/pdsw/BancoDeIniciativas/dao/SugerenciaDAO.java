@@ -32,5 +32,7 @@ public interface SugerenciaDAO {
 
 	public int numeroDeLikes(int idSugerencia);
 
+	public int getnumSugerenciassUsuario(String id);
+
 
 }

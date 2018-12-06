@@ -58,25 +58,6 @@
 		content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
 		name='viewport' />
 	<meta name="viewport" content="width=device-width" />
-	<!-- Canonical SEO -->
-	<link rel="canonical"
-		href="https://www.creative-tim.com/product/material-dashboard-pro" />
-	<!--  Social tags      -->
-	<!-- Schema.org markup for Google+ -->
-	<meta itemprop="name" content="Banco de Iniciativas | Iniciativas" />
-	<meta itemprop="description"
-		content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design." />
-	<meta itemprop="image"
-		content="../../../s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg" />
-	<!-- Twitter Card data -->
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:site" content="@creativetim" />
-	<meta name="twitter:title" content="Banco de Iniciativas | Iniciativas" />
-	<meta name="twitter:description"
-		content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design." />
-	<meta name="twitter:creator" content="@creativetim" />
-	<meta name="twitter:image"
-		content="../../../s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg" />
 	<!-- Open Graph data -->
 	<meta property="fb:app_id" content="655968634437471" />
 	<meta property="og:title" content="Banco de Iniciativas | Iniciativas" />
@@ -233,7 +214,7 @@
 								</div>
 								<div class="card-content">
 									<p class="category">Iniciativas</p>
-									<h3 class="card-title">8</h3>
+									<h3 class="card-title">#{sugerenciaBean.numSugerenciasUsuario}</h3>
 								</div>
 								<div class="card-footer">
 									<div class="stats"></div>
@@ -247,7 +228,7 @@
 								</div>
 								<div class="card-content">
 									<p class="category">Likes</p>
-									<h3 class="card-title">333</h3>
+									<h3 class="card-title">#{sugerenciaBean.likesUsuario}</h3>
 								</div>
 								<div class="card-footer">
 									<div class="stats">
@@ -263,7 +244,7 @@
 								</div>
 								<div class="card-content">
 									<p class="category">Comentarios</p>
-									<h3 class="card-title">196</h3>
+									<h3 class="card-title">#{sugerenciaBean.comentariosUsuario}</h3>
 								</div>
 								<div class="card-footer">
 									<div class="stats">
@@ -272,22 +253,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-3 col-md-6 col-sm-6">
-							<div class="card card-stats">
-								<div class="card-header" data-background-color="blue">
-									<i class="material-icons">person</i>
-								</div>
-								<div class="card-content">
-									<p class="category">Interesados</p>
-									<h3 class="card-title">59</h3>
-								</div>
-								<div class="card-footer">
-									<div class="stats">
-										<i class="material-icons">info</i> En todas tus iniciativas
-									</div>
-								</div>
-							</div>
-						</div>
+
 					</div>
 					<div class="row" id="sugerencias_table">
 						<div class="col-md-12">
@@ -314,7 +280,7 @@
 														modificación</th>
 													<th class="disabled-sorting text-center">Likes</th>
 													<th class="disabled-sorting text-center">Comentarios</th>
-													<th class="disabled-sorting text-center">Interesados</th>
+													<th class="disabled-sorting text-center">Estado</th>
 													<th class="disabled-sorting text-center">Borrar</th>
 												</tr>
 											</thead>
@@ -329,7 +295,7 @@
 														modificación</th>
 													<th class="disabled-sorting text-center">Likes</th>
 													<th class="disabled-sorting text-center">Comentarios</th>
-													<th class="disabled-sorting text-center">Interesados</th>
+													<th class="disabled-sorting text-center">Estado</th>
 													<th class="disabled-sorting text-center">Borrar</th>
 												</tr>
 											</tfoot>
@@ -337,21 +303,25 @@
 												<r:repeat var="sugerencia"
 													value="#{sugerenciaBean.sugerenciasUsuario}">
 													<tr class="text-center">
-														<td>#{sugerencia.id}</td>
 														<td>#{sugerencia.titulo}</td>
 														<td>#{sugerencia.mensaje}</td>
 														<td>#{sugerencia.palabrasClave}</td>
 														<td>#{sugerencia.fechaCreacion}</td>
 
+														<td>#{sugerencia.fechaModificacion}</td>
+
 														<td><p:button
 																class="btn btn-simple btn-danger btn-lg"
 																outcome="likesSugerencia?sugerencia=#{sugerencia.id}"
 																value="Ver Likes" /></td>
-														<td>#{sugerencia.fechaModificacion}</td>
+														<td><p:button
+																class="btn btn-simple btn-danger btn-lg"
+																outcome="comentariosSugerencia?sugerencia=#{sugerencia.id}"
+																value="Ver Comentarios" /></td>
 														<td>#{sugerencia.estado}</td>
 														<td><h:form id="myFrm2">
 																<p:commandButton id="btnsearch2"
-																	action="#{sugerenciaBean.darDislike(clave.id)}"
+																	action="#{sugerenciaBean.eliminarSugerencia(sugerencia.id)}"
 																	class="btn btn-simple btn-danger btn-lg"
 																	icon="fa fa-times"></p:commandButton>
 
@@ -396,8 +366,6 @@
 <script src="../assets/js/jquery-jvectormap.js"></script>
 <!-- Sliders Plugin -->
 <script src="../../assets/js/nouislider.min.js"></script>
-<!--  Google Maps Plugin    -->
-<!--<script src="https://maps.googleapis.com/maps/api/js"></script>-->
 <!-- Select Plugin -->
 <script src="../assets/js/jquery.select-bootstrap.js"></script>
 <!--  DataTables.net Plugin    -->

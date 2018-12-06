@@ -9,5 +9,7 @@ public interface ComentarioDAO {
 	public ArrayList<Comentario> verComentarios(int idSugerencia);
 	
 	public void agregarComentario(Comentario comentario);
+
+	public int getnumComentariosUsuario(String id);
 	
 }
