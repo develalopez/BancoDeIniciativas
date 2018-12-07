@@ -94,5 +94,5 @@ PostgreSQL es una base de datos relacional open source que usa y extiende el len
 
 ### Navbar:
 
-![Navbar](navbar.jpeg)
+![Navbar](nav.jpeg)
 
