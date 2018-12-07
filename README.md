@@ -57,11 +57,11 @@ El objetivo del sistema es permitir el registro y seguimiento de las iniciativas
 
 ##  Diseño y Arquitectura
 
-![Diagrama](diagrama.png)
-
 ### Modelo E-R
 
 ### Diagrama de Clases
+
+![Diagrama](diagrama.png)
 
 ### Stack de tecnologías
 
