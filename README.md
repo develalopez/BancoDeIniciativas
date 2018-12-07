@@ -57,7 +57,7 @@ El objetivo del sistema es permitir el registro y seguimiento de las iniciativas
 
 ##  Diseño y Arquitectura
 
-![Navbar](navbar.jpeg)
+![Diagrama](diagrama.png)
 
 ### Modelo E-R
 
