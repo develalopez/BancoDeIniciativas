@@ -88,8 +88,8 @@ PostgreSQL es una base de datos relacional open source que usa y extiende el len
 
 ### Pantalla de login:
 
-!(login.png)
+![Login](login.png)
 
 ### Navbar:
-!(navbar.jpeg)
+![Navbar](navbar.jpeg)
 
