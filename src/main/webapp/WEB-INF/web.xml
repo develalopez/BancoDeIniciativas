@@ -22,7 +22,7 @@
 		</session-timeout>
 	</session-config>
 	<welcome-file-list>
-		<welcome-file>faces/index.xhtml</welcome-file>
+		<welcome-file>faces/loginLindo.xhtml</welcome-file>
 	</welcome-file-list>
 	<mime-mapping>
 		<extension>ttf</extension>
