@@ -92,6 +92,12 @@ PostgreSQL es una base de datos relacional open source que usa y extiende el len
 
 ![Login](login.png)
 
+Los usuarios que existen actualmente son:
+      sebastian.goenaga@mail.escuelaing.edu.co
+      javier.vargas-l@mail.escuelaing.edu.co
+      daniel.vela@mail.escuelaing.edu.co
+      david.ramirez@mail.escuelaing.edu.co
+
 ### Navbar:
 
 ![Navbar](nav.jpeg)
