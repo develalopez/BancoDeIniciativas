@@ -57,6 +57,8 @@ El objetivo del sistema es permitir el registro y seguimiento de las iniciativas
 
 ##  Diseño y Arquitectura
 
+![Navbar](navbar.jpeg)
+
 ### Modelo E-R
 
 ### Diagrama de Clases
@@ -91,5 +93,6 @@ PostgreSQL es una base de datos relacional open source que usa y extiende el len
 ![Login](login.png)
 
 ### Navbar:
+
 ![Navbar](navbar.jpeg)
 
