@@ -84,3 +84,10 @@ Guice es un framework ligero de inyección de dependencias para Java 6 en adelan
 PostgreSQL es una base de datos relacional open source que usa y extiende el lenguaje SQL combinado con otras características que almacenan y escalan cargas de datos pesadas.
 
 
+##  Manual de usuario
+
+### Pantalla de login:
+
+![Sin titulo](login.png)
+![Sin titulo](navbar.png)
+
