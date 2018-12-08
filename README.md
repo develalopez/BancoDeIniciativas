@@ -58,7 +58,7 @@ El objetivo del sistema es permitir el registro y seguimiento de las iniciativas
 ##  Diseño y Arquitectura
 
 ### Modelo E-R
-![modeloER](modelo_ER.png)
+![modeloER](modeloER.png)
 
 ### Diagrama de Clases
 
