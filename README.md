@@ -58,6 +58,7 @@ El objetivo del sistema es permitir el registro y seguimiento de las iniciativas
 ##  Diseño y Arquitectura
 
 ### Modelo E-R
+![modeloER](modelo ER.png)
 
 ### Diagrama de Clases
 
@@ -96,9 +97,14 @@ PostgreSQL es una base de datos relacional open source que usa y extiende el len
    ##### sebastian.goenaga@mail.escuelaing.edu.co
    ##### javier.vargas-l@mail.escuelaing.edu.co
    ##### daniel.vela@mail.escuelaing.edu.co
-   ##### david.ramirez@mail.escuelaing.edu.co
+   ##### david.ramirez-mo@mail.escuelaing.edu.co
 
 ### Navbar:
 
 ![Navbar](nav.jpeg)
+
+### Tablero del usuario
+![tablero1](tablero1.png)
+![tablero2](tablero2.png)
+![tablero3](tablero3.png)
 
