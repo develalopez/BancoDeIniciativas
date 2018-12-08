@@ -109,7 +109,7 @@ PostgreSQL es una base de datos relacional open source que usa y extiende el len
 ![tablero3](tablero3.png)
 ### Iniciativas:
 
-![iniciativa](iniciativa.jpeg)
+![iniciativa](iniciativa.png)
 ## Aplicación desplegada
 
 Pueden revisar la aplicación funcional [aquí](https://proyecto-prueba-pdsw.herokuapp.com)
