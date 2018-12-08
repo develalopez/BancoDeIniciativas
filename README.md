@@ -56,6 +56,8 @@ El objetivo del sistema es permitir el registro y seguimiento de las iniciativas
 * Entregar estadísticas con base en la información registrada.
 
 ##  Diseño y Arquitectura
+### enlace a trello
+https://trello.com/b/9BAra6Dh/2018-2-proypdsw-juanlamon
 
 ### Modelo E-R
 ![modeloER](modeloER.png)
